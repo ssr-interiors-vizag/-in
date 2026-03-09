@@ -38,7 +38,7 @@ border-radius:5px;
 .hero{
 
 height:500px;
-background:url("../images/hero.jpg.png");
+background:url("../images/hero.png");
 background-size:cover;
 background-position:center;
 display:flex;

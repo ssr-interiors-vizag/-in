@@ -175,5 +175,37 @@ font-weight:bold;
 
 }
 
+.services{
+
+text-align:center;
+padding:60px;
+
+}
+
+.service-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+
+}
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+}
+
+.card h3{
+
+color:#ff7a00;
+
+}
+
+
 
 

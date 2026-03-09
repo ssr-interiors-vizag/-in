@@ -15,6 +15,9 @@ align-items:center;
 background:#111;
 color:white;
 padding:15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
 }
 
@@ -41,9 +44,11 @@ height:500px;
 background:url("../hero.png");
 background-size:cover;
 background-position:center;
+background-repeat: no-repeat;
 display:flex;
 align-items:center;
 color:white;
+  height: calc(100vh - 70px)
 
 }
 

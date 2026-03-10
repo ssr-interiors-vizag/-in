@@ -352,15 +352,27 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 max-width:400px;
 }
 
+/* Shared styles for both */
 .contact-form input,
-.contact-form textarea{
-width:100%;
-padding:10px;
-margin-top:10px;
-border:1px solid #ddd;
-border-radius:5px;
-height:120px;
-resize:none;
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* ADD THIS: prevents boxes from jumping out of the card */
+    font-family: inherit;
+}
+
+/* Height for JUST the message box */
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Height for the name/email (standard input height) */
+.contact-form input {
+    height: 45px; 
 }
 
 

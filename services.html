@@ -5,154 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | SSR INTERIORS VIZAG</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f9f9f9; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; color: #333; }
 
+        /* Header Styling */
         header {
             display: flex; justify-content: space-between; align-items: center;
             background: #111; color: white; padding: 15px 40px;
             position: sticky; top: 0; z-index: 1000;
         }
+        nav a { color: white; margin-left: 20px; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: #ff7a00; }
+        .book-btn { background: #ff7a00; padding: 8px 18px; border-radius: 5px; font-weight: bold; }
 
-        nav a { color: white; margin-left: 20px; text-decoration: none; font-size: 14px; }
-        .book-btn { background: #ff7a00; padding: 8px 15px; border-radius: 5px; }
+        /* Services Section */
+        .services { max-width: 1200px; margin: 60px auto; padding: 0 20px; text-align: center; }
+        .services h2 { font-size: 36px; margin-bottom: 40px; font-weight: 500; color: #222; }
 
-        .services { text-align: center; padding: 60px 20px; }
-        .services h2 { font-size: 32px; margin-bottom: 40px; color: #222; }
-
-        /* The Grid Layout */
+        /* Grid Layout */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: auto;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        /* Card Styling to match image 2 */
+        /* Card Styling to match Mockup 2 */
         .card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden; /* Clips the image corners to the card radius */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            text-align: left; /* Left aligned text like the second image */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            text-align: left;
         }
-
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-8px); }
 
         .card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover; /* Ensures image isn't stretched */
+            height: 220px; /* Fixed height for uniformity */
+            object-fit: cover; /* This is the key: it crops images to fit without stretching */
             display: block;
         }
 
         .card-content { padding: 20px; }
+        .card-content h3 { margin: 0 0 8px 0; font-size: 22px; color: #111; }
+        .card-content p { margin: 0; color: #666; font-size: 15px; line-height: 1.5; }
 
-        .card h3 {
-            margin: 0 0 10px 0;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .card p {
-            margin: 0;
-            color: #777;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* Special styling for the wide bottom card */
+        /* Wide Card for Residential & Commercial */
         .wide-card {
-            grid-column: 1 / -1; /* Makes it span all columns */
+            grid-column: 1 / -1; /* Spans full width */
             display: flex;
             align-items: center;
         }
-        
-        @media (max-width: 768px) { .wide-card { flex-direction: column; } }
+        .wide-card img { width: 60%; height: 350px; } /* Larger image for wide card */
+        .wide-card .card-content { width: 40%; padding: 40px; }
 
-        footer { background: #111; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        /* Mobile Responsiveness */
+        @media (max-width: 850px) {
+            .wide-card { flex-direction: column; }
+            .wide-card img, .wide-card .card-content { width: 100%; }
+            .wide-card img { height: 220px; }
+        }
+
+        footer { background: #111; color: white; text-align: center; padding: 40px; margin-top: 60px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SSR INTERIORS VIZAG</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a class="book-btn" href="#">Book Design</a>
-        </nav>
-    </header>
+<header>
+    <h1>SSR INTERIORS VIZAG</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="book-btn" href="#">Book Design</a>
+    </nav>
+</header>
 
-    <section class="services">
-        <h2>Our Services</h2>
-        
-        <div class="service-grid">
-            <div class="card">
-                <img src="kitchen.jpg" alt="Modular Kitchen">
-                <div class="card-content">
-                    <h3>Modular Kitchen</h3>
-                    <p>Functional and stylish modular kitchen solutions.</p>
-                </div>
-            </div>
+<section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
 
-            <div class="card">
-                <img src="wardrobes.jpg" alt="Wardrobes">
-                <div class="card-content">
-                    <h3>Wardrobes</h3>
-                    <p>Custom wardrobes designed for space and style.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="bedroom.jpg" alt="Bedrooms">
-                <div class="card-content">
-                    <h3>Bedrooms</h3>
-                    <p>Comfortable and aesthetic bedroom interiors.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="tv-unit.jpg" alt="TV Unit">
-                <div class="card-content">
-                    <h3>TV Unit</h3>
-                    <p>Modern TV unit designs for living spaces.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="ceiling.jpg" alt="Ceiling">
-                <div class="card-content">
-                    <h3>False Ceiling</h3>
-                    <p>Complete electrical and ceiling design solutions.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="living-room.jpg" alt="Living Room">
-                <div class="card-content">
-                    <h3>Living Room</h3>
-                    <p>Elegant and modern living room interior designs.</p>
-                </div>
-            </div>
-
-            <div class="card wide-card">
-                <img src="commercial.jpg" alt="Commercial" style="width: 50%; height: 300px;">
-                <div class="card-content">
-                    <h3>Residential & Commercial</h3>
-                    <p>Interior services for homes and business spaces.</p>
-                </div>
+        <div class="card">
+            <img src="living-room.jpg" alt="Living Room">
+            <div class="card-content">
+                <h3>Living Room</h3>
+                <p>Elegant and modern living room interior designs.</p>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 SSR INTERIORS VIZAG</p>
-    </footer>
+        <div class="card">
+            <img src="kitchen.jpg" alt="Modular Kitchen">
+            <div class="card-content">
+                <h3>Modular Kitchen</h3>
+                <p>Functional and stylish modular kitchen solutions.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="wardrobe.jpg" alt="Wardrobes">
+            <div class="card-content">
+                <h3>Wardrobes</h3>
+                <p>Custom wardrobes designed for space and style.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="bedroom.jpg" alt="Bedrooms">
+            <div class="card-content">
+                <h3>Bedrooms</h3>
+                <p>Comfortable and aesthetic bedroom interiors.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="tv-unit.jpg" alt="TV Unit">
+            <div class="card-content">
+                <h3>TV Unit</h3>
+                <p>Modern TV unit designs for living spaces.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="ceiling.jpg" alt="Electrical & Ceiling">
+            <div class="card-content">
+                <h3>Electrical & Ceiling Works</h3>
+                <p>Complete electrical and ceiling design solutions.</p>
+            </div>
+        </div>
+
+        <div class="card wide-card">
+            <img src="commercial.jpg" alt="Residential & Commercial">
+            <div class="card-content">
+                <h3>Residential & Commercial</h3>
+                <p>Interior services for homes and business spaces. We create environments that inspire productivity and comfort.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SSR INTERIORS VIZAG</p>
+</footer>
 
 </body>
 </html>

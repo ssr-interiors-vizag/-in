@@ -3,126 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | SSR INTERIORS VIZAG</title>
+    <title>Contact | SSR INTERIORS VIZAG</title>
     <style>
-        /* General Styles */
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; color: #333; }
+        /* General Setup */
+        body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
             background: #111; color: white; padding: 15px 40px;
             position: sticky; top: 0; z-index: 1000;
         }
-        nav a { color: white; margin-left: 20px; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: #ff7a00; }
-        .book-btn { background: #ff7a00; padding: 8px 18px; border-radius: 5px; font-weight: bold; }
+        nav a { color: white; margin-left: 20px; text-decoration: none; font-size: 14px; }
+        .book-btn { background: #ff7a00; padding: 8px 15px; border-radius: 5px; }
 
-        /* Contact Section Styles */
-        .contact { max-width: 1100px; margin: 60px auto; padding: 0 20px; text-align: center; }
-        .contact h2 { font-size: 32px; margin-bottom: 10px; color: #111; }
-        .contact p { color: #666; margin-bottom: 40px; }
+        /* Your Contact CSS with Fixes */
+        .contact {
+            padding: 80px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
 
         .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap; /* Keeps it mobile friendly */
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 350px;
+            flex: 1; /* Allows it to grow/shrink nicely */
             text-align: left;
         }
 
-        /* Card Styling */
-        .contact-info, .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        .contact-info a {
+            color: #ff7a00;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        .contact-info h3, .contact-form h3 { margin-top: 0; margin-bottom: 20px; color: #ff7a00; }
-        .contact-info p { margin-bottom: 20px; line-height: 1.6; }
-        .contact-info a { color: #333; text-decoration: none; font-weight: 500; transition: 0.2s; }
-        .contact-info a:hover { color: #ff7a00; }
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            flex: 1;
+            text-align: left;
+        }
 
-        /* Form Styling */
-        form { display: flex; flex-direction: column; gap: 15px; }
-        input, textarea {
+        /* FIX: Separated input and textarea heights */
+        .contact-form input {
             width: 100%;
             padding: 12px;
+            margin-top: 10px;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            box-sizing: border-box; /* Ensures padding doesn't break width */
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't push width out */
         }
-        textarea { height: 120px; resize: none; }
 
-        button {
-            background: #111;
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 120px; /* Only the message box should be tall */
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background: #ff7a00;
             color: white;
             border: none;
             padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
             transition: 0.3s;
         }
-        button:hover { background: #ff7a00; }
 
-        footer { background: #111; color: white; text-align: center; padding: 20px; margin-top: 60px; }
+        .contact-form button:hover {
+            background: #e56700;
+        }
+
+        footer { background: black; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SSR INTERIORS VIZAG</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a class="book-btn" href="order.html">Book Design</a>
-        </nav>
-    </header>
+<header>
+    <h1>SSR INTERIORS VIZAG</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="book-btn" href="order.html">Book Design</a>
+    </nav>
+</header>
 
-    <section class="contact">
-        <h2>Contact SSR Interiors Vizag</h2>
-        <p>We would love to design your dream space. Get in touch with us today.</p>
+<section class="contact">
+    <h2>Contact SSR Interiors Vizag</h2>
+    <p>We would love to design your dream space. Get in touch with us today.</p>
 
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Connect With Us</h3>
-                <p>
-                    <strong>Email:</strong><br>
-                    <a href="mailto:ssrvizaginteriors@gmail.com">ssrvizaginteriors@gmail.com</a>
-                </p>
-                <p>
-                    <strong>WhatsApp:</strong><br>
-                    <a href="https://wa.me/message/6DM5ZLTSF3UMC1" target="_blank">Chat on WhatsApp</a>
-                </p>
-                <p>
-                    <strong>Instagram:</strong><br>
-                    <a href="https://www.instagram.com/ssr_vizag_interiors_" target="_blank">Follow us on Instagram</a>
-                </p>
-                <p>
-                    <strong>YouTube:</strong><br>
-                    <a href="https://youtube.com/@ssrvizaginteriors" target="_blank">Watch our YouTube Channel</a>
-                </p>
-            </div>
-
-            <div class="contact-form">
-                <h3>Send Us a Message</h3>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Connect With Us</h3>
+            <p><strong>Email:</strong><br>
+               <a href="mailto:ssrvizaginteriors@gmail.com">ssrvizaginteriors@gmail.com</a>
+            </p>
+            <p><strong>WhatsApp:</strong><br>
+               <a href="https://wa.me/message/6DM5ZLTSF3UMC1" target="_blank">Chat on WhatsApp</a>
+            </p>
+            <p><strong>Instagram:</strong><br>
+               <a href="https://www.instagram.com/ssr_vizag_interiors_" target="_blank">Follow us on Instagram</a>
+            </p>
+            <p><strong>YouTube:</strong><br>
+               <a href="https://youtube.com/@ssrvizaginteriors" target="_blank">Watch our YouTube Channel</a>
+            </p>
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 SSR INTERIORS VIZAG</p>
-    </footer>
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SSR INTERIORS VIZAG</p>
+</footer>
 
 </body>
 </html>

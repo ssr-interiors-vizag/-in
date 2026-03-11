@@ -1,3 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | SSR Interiors Vizag</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#000;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+.gallery-section{
+padding:40px;
+}
+
+.gallery-section h2{
+margin-bottom:20px;
+}
+
+.gallery-row{
+display:flex;
+overflow-x:auto;
+gap:20px;
+padding-bottom:20px;
+}
+
+.gallery-row img{
+height:220px;
+border-radius:8px;
+transition:transform 0.3s;
+cursor:pointer;
+}
+
+.gallery-row img:hover{
+transform:scale(1.1);
+}
+
+footer{
+background:black;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
 <header>
 
 <h1>SSR INTERIORS VIZAG</h1>
@@ -5,18 +77,94 @@
 <nav>
 
 <a href="index.html">Home</a>
-
 <a href="services.html">Services</a>
-
 <a href="gallery.html">Gallery</a>
-
 <a href="about.html">About</a>
-
 <a href="contact.html">Contact</a>
-
-<a class="book-btn" href="order.html">Book Design</a>
 
 </nav>
 
 </header>
 
+
+<!-- Modular Kitchen -->
+
+<section class="gallery-section">
+
+<h2>Modular Kitchen Designs</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/kitchen1.jpg">
+<img src="images/gallery/kitchen2.jpg">
+<img src="images/gallery/kitchen3.jpg">
+<img src="images/gallery/kitchen4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- Bedroom Interiors -->
+
+<section class="gallery-section">
+
+<h2>Bedroom Interiors</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/bedroom1.jpg">
+<img src="images/gallery/bedroom2.jpg">
+<img src="images/gallery/bedroom3.jpg">
+<img src="images/gallery/bedroom4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- Living Room -->
+
+<section class="gallery-section">
+
+<h2>Living Room Designs</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/living1.jpg">
+<img src="images/gallery/living2.jpg">
+<img src="images/gallery/living3.jpg">
+<img src="images/gallery/living4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- Commercial -->
+
+<section class="gallery-section">
+
+<h2>Commercial Projects</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/commercial1.jpg">
+<img src="images/gallery/commercial2.jpg">
+<img src="images/gallery/commercial3.jpg">
+<img src="images/gallery/commercial4.jpg">
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 SSR Interiors Vizag</p>
+
+</footer>
+
+</body>
+
+</html>

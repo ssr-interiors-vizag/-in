@@ -24,7 +24,11 @@
 <html>
 <head>
 <title>Admin Panel - SSR Interiors Vizag</title>
-<link rel="stylesheet" href="css/style.css">
+<script>
+if(localStorage.getItem("adminLogin") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
 </head>
 
 <body>

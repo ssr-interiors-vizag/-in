@@ -57,27 +57,21 @@ cursor:pointer;
 <p id="error" style="color:red;"></p>
 
 </div>
-
 <script>
-
 function login(){
+var pass = document.getElementById("password").value;
 
-var password=document.getElementById("password").value;
-
-if(password==="Niranjan@123"){
-
+if(pass === "admin123"){
+localStorage.setItem("adminLogin","true");
 window.location.href="admin.html";
-
 }
 else{
-
-document.getElementById("error").innerHTML="Wrong Password";
-
+alert("Wrong Password");
 }
-
 }
-
 </script>
+
+
 
 </body>
 </html>

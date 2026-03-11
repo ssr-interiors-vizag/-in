@@ -20,3 +20,55 @@
 
 </header>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel - SSR Interiors Vizag</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<h2>SSR Interiors Admin Panel</h2>
+
+<h3>Upload Gallery Image</h3>
+
+<input type="file" id="imageUpload">
+<button onclick="uploadImage()">Upload Image</button>
+
+<p id="status"></p>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
+
+<script>
+
+const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_PROJECT.appspot.com"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const storage = firebase.storage();
+
+function uploadImage(){
+
+const file = document.getElementById("imageUpload").files[0];
+
+const storageRef = storage.ref("gallery/" + file.name);
+
+storageRef.put(file).then(() => {
+
+document.getElementById("status").innerHTML="Image Uploaded Successfully";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

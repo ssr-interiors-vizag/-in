@@ -1,197 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | SSR Interiors Vizag</title>
-    <style>
-        /* YOUR CSS INTEGRATED HERE */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | SSR Interiors Vizag</title>
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #111;
-            color: white;
-            padding: 15px 40px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+<style>
 
-        header h1 { font-size: 24px; margin: 0; }
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f5f5f5;
+color:#333;
+}
 
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 14px;
-        }
+/* ABOUT SECTION */
 
-        .book-btn {
-            background: #ff7a00;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
+.about{
+padding:80px 20px;
+background:#f9f9f9;
+text-align:center;
+}
 
-        /* ABOUT SECTION STYLING */
-        .about {
-            padding: 80px 20px;
-            background: #f9f9f9;
-            text-align: center;
-        }
+.about-container{
+max-width:1100px;
+margin:auto;
+}
 
-        .about-container {
-            max-width: 1100px;
-            margin: auto;
-        }
+.about h2{
+font-size:40px;
+margin-bottom:20px;
+color:#111;
+}
 
-        .about h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #111;
-        }
+.about-intro{
+font-size:18px;
+color:#555;
+max-width:800px;
+margin:0 auto 40px auto;
+line-height:1.6;
+}
 
-        .about-intro {
-            font-size: 18px;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            line-height: 1.6;
-        }
+.about-stats{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-bottom:50px;
+flex-wrap:wrap;
+}
 
-        .about-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
+.stat{
+background:white;
+padding:25px 40px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+min-width:150px;
+}
 
-        .stat {
-            background: white;
-            padding: 25px 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 150px;
-        }
+.stat h3{
+font-size:30px;
+color:#ff7a00;
+margin:0 0 5px 0;
+}
 
-        .stat h3 {
-            font-size: 30px;
-            color: #ff7a00;
-            margin: 0 0 5px 0;
-        }
+.about-features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+}
 
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
+.feature{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:transform 0.3s ease;
+}
 
-        .feature {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature:hover { transform: translateY(-5px); }
+.feature:hover{
+transform:translateY(-5px);
+}
 
-        .feature h4 {
-            color: #111;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
+.feature h4{
+color:#111;
+margin-bottom:10px;
+font-size:20px;
+}
 
-        .mission {
-            margin-top: 50px;
-            font-style: italic;
-            font-size: 18px;
-            color: #666;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-    </style>
+.mission{
+margin-top:50px;
+font-style:italic;
+font-size:18px;
+color:#666;
+border-top:1px solid #ddd;
+padding-top:20px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<header>
-    <h1>SSR INTERIORS VIZAG</h1>
-  <nav class="navbar">
-
-<h2>SSR INTERIORS</h2>
-
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="login.html">Admin</a></li>
-
-</ul>
-
-</nav>
-
-        <a class="book-btn" href="order.html">Book Design</a>
-    </nav>
-</header>
-
 <section class="about">
-    <div class="about-container">
-        <h2>About SSR Interiors Vizag</h2>
-        <p class="about-intro">
-            Creating Spaces, Building Legacies. Since our inception on December 11th, 2019, 
-            SSR Interiors Vizag has been redefining modern interior design in the City of Destiny.
-            With years of dedicated experience, we craft beautiful and functional interiors 
-            that match our clients' lifestyle and vision.
-        </p>
 
-        <div class="about-stats">
-            <div class="stat">
-                <h3>6+ Years</h3>
-                <p>Design Experience</p>
-            </div>
-            <div class="stat">
-                <h3>100+</h3>
-                <p>Projects Completed</p>
-            </div>
-            <div class="stat">
-                <h3>80+</h3>
-                <p>Happy Customers</p>
-            </div>
-        </div>
+<div class="about-container">
 
-        <div class="about-features">
-            <div class="feature">
-                <h4>Proven Track Record</h4>
-                <p>Over 100 successful interior projects delivered with precision.</p>
-            </div>
-            <div class="feature">
-                <h4>Bespoke Designs</h4>
-                <p>Every project is custom designed to match your taste and lifestyle.</p>
-            </div>
-            <div class="feature">
-                <h4>Client Satisfaction</h4>
-                <p>Our clients trust us for quality work and beautiful interiors.</p>
-            </div>
-            <div class="feature">
-                <h4>Local Expertise</h4>
-                <p>Deeply rooted in Vizag with a passion for premium design.</p>
-            </div>
-        </div>
+<h2>About SSR Interiors Vizag</h2>
 
-        <p class="mission">
-            Our mission is to deliver functional, elegant, and timeless interiors that transform houses into dream homes.
-        </p>
-    </div>
+<p class="about-intro">
+Creating Spaces, Building Legacies. Since our inception on December 11th, 2019,
+SSR Interiors Vizag has been redefining modern interior design in the City of Destiny.
+With years of dedicated experience, we craft beautiful and functional interiors
+that match our clients' lifestyle and vision.
+</p>
+
+<div class="about-stats">
+
+<div class="stat">
+<h3>6+ Years</h3>
+<p>Design Experience</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat">
+<h3>80+</h3>
+<p>Happy Customers</p>
+</div>
+
+</div>
+
+<div class="about-features">
+
+<div class="feature">
+<h4>Proven Track Record</h4>
+<p>Over 100 successful interior projects delivered with precision.</p>
+</div>
+
+<div class="feature">
+<h4>Bespoke Designs</h4>
+<p>Every project is custom designed to match your taste and lifestyle.</p>
+</div>
+
+<div class="feature">
+<h4>Client Satisfaction</h4>
+<p>Our clients trust us for quality work and beautiful interiors.</p>
+</div>
+
+<div class="feature">
+<h4>Local Expertise</h4>
+<p>Deeply rooted in Vizag with a passion for premium design.</p>
+</div>
+
+</div>
+
+<p class="mission">
+Our mission is to deliver functional, elegant, and timeless interiors that transform houses into dream homes.
+</p>
+
+</div>
+
 </section>
 
 </body>

@@ -383,3 +383,26 @@ z-index: 999;
 .details a:hover {
     color: #ff7a00;
 }
+/* NAVBAR STYLE */
+.navbar{
+    height: 70px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Navigation links */
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+/* Link styling */
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}

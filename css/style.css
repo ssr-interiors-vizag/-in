@@ -383,66 +383,22 @@ z-index: 999;
 .details a:hover {
     color: #ff7a00;
 }
-/* Navbar container */
-.navbar{
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: black;
-padding: 10px 30px;
+.navbar {
+  display: flex;
+  justify-content: space-between; /* This pushes logo left and menu right */
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #000; /* Or transparent if over an image */
 }
 
-/* Logo */
-.logo{
-color: white;
-font-size: 24px;
-margin: 0;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px; /* This creates the even spacing between links */
 }
 
-/* Navigation list */
-.nav-links{
-list-style: none;
-display: flex;
-gap: 25px;
-margin: 0;
-padding: 0;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
 }
-
-/* Navigation links */
-.nav-links a{
-text-decoration: none;
-color: white;
-font-size: 16px;
-}
-.navbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:black;
-padding:10px 30px;
-}
-
-.logo{
-color:white;
-margin:0;
-}
-
-.nav-links{
-display:flex;
-list-style:none;
-gap:25px;
-margin:0;
-padding:0;
-}
-
-.nav-links li{
-display:inline;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-font-size:16px;
-}
-
-

@@ -23,7 +23,7 @@ z-index:1000;
 .nav-links{
 display:flex;
 list-style:none;
-gap:30px;
+gap:35px;   /* space between buttons */
 margin:0;
 padding:0;
 }
@@ -31,8 +31,17 @@ padding:0;
 .nav-links a{
 color:white;
 text-decoration:none;
-font-size:15px;
+font-size:20px;   /* increased button text size */
+font-weight:600;  /* makes text bold */
+padding:8px 12px; /* increases clickable area */
+transition:0.3s;
 }
+
+/* hover effect */
+.nav-links a:hover{
+color:#ff7a00;
+}
+
 
 /* BUTTON */
 

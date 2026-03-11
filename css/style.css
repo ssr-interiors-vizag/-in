@@ -15,26 +15,29 @@ align-items:center;
 background:#111;
 color:white;
 padding:15px 40px;
-position:sticky;
-top:0;
-z-index:1000;
 }
+
+/* NAVBAR LIST */
 
 .nav-links{
 display:flex;
 list-style:none;
-gap:35px;   /* space between buttons */
 margin:0;
 padding:0;
+gap:30px;
+}
+
+/* NAVBAR LINKS */
+
+.nav-links li{
+display:inline;
 }
 
 .nav-links a{
 color:white;
 text-decoration:none;
-font-size:20px;   /* increased button text size */
-font-weight:600;  /* makes text bold */
-padding:8px 12px; /* increases clickable area */
-transition:0.3s;
+font-size:18px;
+font-weight:600;
 }
 
 /* hover effect */

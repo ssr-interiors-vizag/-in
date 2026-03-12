@@ -1,1 +1,110 @@
+/* SERVICES PAGE */
+
+.services{
+max-width:1200px;
+margin:60px auto;
+padding:0 20px;
+text-align:center;
+}
+
+.services h2{
+font-size:36px;
+margin-bottom:40px;
+font-weight:500;
+color:#222;
+}
+
+
+/* GRID LAYOUT */
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+
+/* SERVICE CARD */
+
+.card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+transition:transform 0.3s ease;
+text-align:left;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+
+/* IMAGE */
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+
+/* CARD CONTENT */
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+margin:0 0 8px 0;
+font-size:22px;
+color:#111;
+}
+
+.card-content p{
+margin:0;
+color:#666;
+font-size:15px;
+line-height:1.5;
+}
+
+
+/* WIDE CARD */
+
+.wide-card{
+grid-column:1 / -1;
+display:flex;
+align-items:center;
+}
+
+.wide-card img{
+width:60%;
+height:350px;
+}
+
+.wide-card .card-content{
+width:40%;
+padding:40px;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:850px){
+
+.wide-card{
+flex-direction:column;
+}
+
+.wide-card img,
+.wide-card .card-content{
+width:100%;
+}
+
+.wide-card img{
+height:220px;
+}
+
+}
 

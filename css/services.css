@@ -107,4 +107,35 @@ height:220px;
 }
 
 }
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+color:white;
+padding:15px 40px;
+}
+
+/* NAVBAR */
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:30px;
+margin:0;
+padding:0;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+}
+
+.nav-links a:hover{
+color:#ff7a00;
+}
 

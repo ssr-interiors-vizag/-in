@@ -9,6 +9,17 @@ color:#333;
 
 
 /* HEADER + NAVBAR */
+/* FIX NAVBAR STYLE */
+
+header{
+background:#111;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+
 .nav-links{
 display:flex;
 list-style:none;

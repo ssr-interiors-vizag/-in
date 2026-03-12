@@ -1,1 +1,164 @@
+/* BODY */
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f5f5f5;
+color:#333;
+}
+
+
+/* HEADER + NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+color:white;
+padding:15px 40px;
+}
+
+
+/* WEBSITE TITLE */
+
+header h1{
+margin:0;
+font-size:24px;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:30px;
+margin:0;
+padding:0;
+}
+
+.nav-links li{
+display:inline;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ff7a00;
+}
+
+
+/* ABOUT SECTION */
+
+.about{
+padding:80px 20px;
+background:#f9f9f9;
+text-align:center;
+}
+
+
+/* ABOUT CONTAINER */
+
+.about-container{
+max-width:1100px;
+margin:auto;
+}
+
+
+/* ABOUT TITLE */
+
+.about h2{
+font-size:40px;
+margin-bottom:20px;
+color:#111;
+}
+
+
+/* INTRO TEXT */
+
+.about-intro{
+font-size:18px;
+color:#555;
+max-width:800px;
+margin:0 auto 40px auto;
+line-height:1.6;
+}
+
+
+/* STATS SECTION */
+
+.about-stats{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-bottom:50px;
+flex-wrap:wrap;
+}
+
+
+/* STAT CARDS */
+
+.stat{
+background:white;
+padding:25px 40px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+min-width:150px;
+}
+
+.stat h3{
+font-size:30px;
+color:#ff7a00;
+margin:0 0 5px 0;
+}
+
+
+/* FEATURES GRID */
+
+.about-features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+
+/* FEATURE CARD */
+
+.feature{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:transform 0.3s ease;
+}
+
+.feature:hover{
+transform:translateY(-5px);
+}
+
+.feature h4{
+color:#111;
+margin-bottom:10px;
+font-size:20px;
+}
+
+
+/* MISSION TEXT */
+
+.mission{
+margin-top:50px;
+font-style:italic;
+font-size:18px;
+color:#666;
+border-top:1px solid #ddd;
+padding-top:20px;
+}
 

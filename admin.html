@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,18 +39,20 @@
 
 <div class="main-content">
 
-<header>
+<div class="topbar">
 
 <h1>SSR Interiors Admin Panel</h1>
 
-</header>
+</div>
 
 
 <div class="card">
 
 <h2>Upload Gallery Image</h2>
 
-<input type="file">
+<input type="file" id="imageInput">
+
+<img id="preview">
 
 <button>Upload Image</button>
 
@@ -57,6 +61,20 @@
 </div>
 
 </div>
+
+<script>
+
+const imageInput = document.getElementById("imageInput");
+const preview = document.getElementById("preview");
+
+imageInput.onchange = evt => {
+const [file] = imageInput.files
+if (file) {
+preview.src = URL.createObjectURL(file)
+}
+}
+
+</script>
 
 </body>
 </html>

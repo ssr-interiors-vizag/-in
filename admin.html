@@ -277,7 +277,23 @@ container.appendChild(div)
 
 function deleteImage(index){
 
-let images=JSON.parse(localStorage.getItem("galleryImages"))
+let images = JSON.parse(localStorage.getItem("galleryImages")) || []
+
+let publicId = images[index].public_id
+
+/* Delete from Cloudinary */
+
+fetch(`https://api.cloudinary.com/v1_1/depeb35y3/image/destroy`,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+public_id:publicId
+})
+})
+
+/* Remove from local storage */
 
 images.splice(index,1)
 

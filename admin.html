@@ -10,6 +10,47 @@
 
 <link rel="stylesheet" href="css/admin.css">
 
+<style>
+
+.section{
+display:none;
+}
+
+#dashboard{
+display:block;
+}
+
+#preview{
+width:100%;
+max-width:400px;
+margin-top:15px;
+border-radius:8px;
+}
+
+.manage-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.manage-grid img{
+width:100%;
+border-radius:8px;
+}
+
+.delete-btn{
+margin-top:5px;
+background:red;
+color:white;
+border:none;
+padding:5px 10px;
+cursor:pointer;
+border-radius:4px;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -61,9 +102,26 @@
 
 <input type="file" id="imageInput">
 
+<br><br>
+
+<select id="category">
+
+<option value="kitchen">Modular Kitchen</option>
+<option value="bedroom">Bedroom</option>
+<option value="living">Living Room</option>
+<option value="wardrobe">Wardrobe</option>
+<option value="ceiling">False Ceiling</option>
+<option value="commercial">Commercial</option>
+
+</select>
+
+<br><br>
+
 <img id="preview">
 
-<button>Upload Image</button>
+<br><br>
+
+<button onclick="uploadImage()">Upload Image</button>
 
 </div>
 
@@ -76,7 +134,7 @@
 
 <h1>Manage Images</h1>
 
-<p>Uploaded images will appear here.</p>
+<div id="imageContainer" class="manage-grid"></div>
 
 </div>
 
@@ -115,21 +173,21 @@
 
 function showSection(sectionId){
 
-let sections = document.querySelectorAll(".section");
+let sections=document.querySelectorAll(".section")
 
 sections.forEach(section=>{
-section.style.display="none";
+section.style.display="none"
 })
 
-document.getElementById(sectionId).style.display="block";
+document.getElementById(sectionId).style.display="block"
 
 }
 
 
 /* Image Preview */
 
-const imageInput=document.getElementById("imageInput");
-const preview=document.getElementById("preview");
+const imageInput=document.getElementById("imageInput")
+const preview=document.getElementById("preview")
 
 imageInput.onchange=evt=>{
 
@@ -140,6 +198,92 @@ preview.src=URL.createObjectURL(file)
 }
 
 }
+
+
+/* Upload Image */
+
+function uploadImage(){
+
+const file=imageInput.files[0]
+
+if(!file){
+alert("Please select an image")
+return
+}
+
+const reader=new FileReader()
+
+reader.onload=function(e){
+
+let images=JSON.parse(localStorage.getItem("galleryImages"))||[]
+
+images.push({
+src:e.target.result,
+category:document.getElementById("category").value
+})
+
+localStorage.setItem("galleryImages",JSON.stringify(images))
+
+alert("Image uploaded successfully")
+
+preview.src=""
+
+imageInput.value=""
+
+loadImages()
+
+}
+
+reader.readAsDataURL(file)
+
+}
+
+
+/* Load Images */
+
+function loadImages(){
+
+const container=document.getElementById("imageContainer")
+
+container.innerHTML=""
+
+let images=JSON.parse(localStorage.getItem("galleryImages"))||[]
+
+images.forEach((img,index)=>{
+
+let div=document.createElement("div")
+
+div.innerHTML=`
+<img src="${img.src}">
+<br>
+<button class="delete-btn" onclick="deleteImage(${index})">Delete</button>
+`
+
+container.appendChild(div)
+
+})
+
+}
+
+
+/* Delete Image */
+
+function deleteImage(index){
+
+let images=JSON.parse(localStorage.getItem("galleryImages"))
+
+images.splice(index,1)
+
+localStorage.setItem("galleryImages",JSON.stringify(images))
+
+loadImages()
+
+}
+
+
+/* Load images on page start */
+
+loadImages()
 
 </script>
 

@@ -108,7 +108,8 @@ margin-top:40px;
 
 <h2>Modular Kitchen Designs</h2>
 
-<div class="gallery-row">
+<div class="gallery-row kitchen">
+
 
 <img src="images/gallery/kitchen1.jpg">
 <img src="images/gallery/kitchen2.jpg">
@@ -126,7 +127,8 @@ margin-top:40px;
 
 <h2>Bedroom Interiors</h2>
 
-<div class="gallery-row">
+<div class="gallery-row bedroom">
+
 
 <img src="https://res.cloudinary.com/depeb35y3/image/upload/v1773336003/commercial_xts8ym.jpg">
 <img src="images/gallery/bedroom2.jpg">
@@ -144,7 +146,7 @@ margin-top:40px;
 
 <h2>Living Room Designs</h2>
 
-<div class="gallery-row">
+<div class="gallery-row livingroom">
 
 <img src="images/gallery/living1.jpg">
 <img src="images/gallery/living2.jpg">
@@ -161,8 +163,8 @@ margin-top:40px;
 <section class="gallery-section">
 
 <h2>Wardrobe Designs</h2>
-
-<div class="gallery-row">
+  
+<div class="gallery-row wardrobe">
 
 <img src="images/gallery/wardrobe1.jpg">
 <img src="images/gallery/wardrobe2.jpg">
@@ -176,11 +178,11 @@ margin-top:40px;
 
 <!-- False Ceiling -->
 
+
 <section class="gallery-section">
 
 <h2>False Ceiling Designs</h2>
-
-<div class="gallery-row">
+<div class="gallery-row ceiling">
 
 <img src="images/gallery/ceiling1.jpg">
 <img src="images/gallery/ceiling2.jpg">
@@ -198,7 +200,8 @@ margin-top:40px;
 
 <h2>Commercial Projects</h2>
 
-<div class="gallery-row">
+<div class="gallery-row commercial">
+
 
 <img src="images/gallery/commercial1.jpg">
 <img src="images/gallery/commercial2.jpg">
@@ -208,13 +211,14 @@ margin-top:40px;
 </div>
 
 </section>
-
-
 <footer>
 
 <p>© 2026 SSR Interiors Vizag</p>
 
 </footer>
+
+<script>
+
 const galleryImages = JSON.parse(localStorage.getItem("galleryImages")) || [];
 
 galleryImages.forEach(img => {
@@ -232,6 +236,13 @@ container.appendChild(image);
 }
 
 });
+
+</script>
+
+</body>
+</html>
+
+
 
 </body>
 

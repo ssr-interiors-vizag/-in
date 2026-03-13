@@ -69,7 +69,8 @@ border-radius:4px;
 <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
 <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
 <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
-<li><a href="index.html">Logout</a></li>
+<li><a href="#" onclick="logout(); return false;">Logout</a></li>
+
 
 
 
@@ -308,16 +309,16 @@ loadImages()
 
 loadImages()
   
- function logout(){
-
+function logout(){
 localStorage.removeItem("admin")
-
-window.location.href="index.html"
-
-
- if(localStorage.getItem("admin") !== "true"){
 window.location.href="index.html"
 }
+
+/* Prevent opening admin page without login */
+if(localStorage.getItem("admin") !== "true"){
+window.location.href="index.html"
+}
+
 
 </script>
 

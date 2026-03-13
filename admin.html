@@ -166,6 +166,11 @@ border-radius:4px;
 
 </div>
 <script>
+  
+  if(localStorage.getItem("admin") !== "true"){
+window.location.href="index.html"
+}
+
 
 /* Sidebar navigation */
 
@@ -305,13 +310,14 @@ loadImages()
 /* Load images on page start */
 
 loadImages()
-  function logout(){
+  
+ function logout(){
 
 localStorage.removeItem("admin")
 
 window.location.href="index.html"
 
-}
+
 
 
 </script>

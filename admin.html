@@ -1,78 +1,45 @@
-<header>
-
-<h1>SSR INTERIORS VIZAG</h1>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="services.html">Services</a>
-
-<a href="gallery.html">Gallery</a>
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
-
-<a class="book-btn" href="order.html">Book Design</a>
-
-</nav>
-
-</header>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Admin Panel - SSR Interiors Vizag</title>
-<script>
-if(localStorage.getItem("adminLogin") !== "true"){
-    window.location.href = "login.html";
-}
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SSR Interiors Admin</title>
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h2>SSR Interiors Admin Panel</h2>
+<header class="navbar">
+    <h1>SSR INTERIORS VIZAG</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="book.html">Book Design</a>
+    </nav>
+</header>
+
+
+<div class="admin-container">
+
+<h2>Admin Panel</h2>
+
+<div class="upload-card">
 
 <h3>Upload Gallery Image</h3>
 
 <input type="file" id="imageUpload">
-<button onclick="uploadImage()">Upload Image</button>
 
-<p id="status"></p>
+<button>Upload Image</button>
 
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
+</div>
 
-<script>
-
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT.appspot.com"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const storage = firebase.storage();
-
-function uploadImage(){
-
-const file = document.getElementById("imageUpload").files[0];
-
-const storageRef = storage.ref("gallery/" + file.name);
-
-storageRef.put(file).then(() => {
-
-document.getElementById("status").innerHTML="Image Uploaded Successfully";
-
-});
-
-}
-
-</script>
+</div>
 
 </body>
 </html>

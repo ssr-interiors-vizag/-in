@@ -205,39 +205,46 @@ preview.src=URL.createObjectURL(file)
 function uploadImage(){
 
 const file=imageInput.files[0]
+const category=document.getElementById("category").value
 
 if(!file){
 alert("Please select an image")
 return
 }
 
-const reader=new FileReader()
+const formData=new FormData()
 
-reader.onload=function(e){
+formData.append("file",file)
+formData.append("upload_preset","ssr_gallery")
+
+fetch("https://api.cloudinary.com/v1_1/depeb35y3/image/upload",{
+
+method:"POST",
+body:formData
+
+})
+
+.then(res=>res.json())
+.then(data=>{
 
 let images=JSON.parse(localStorage.getItem("galleryImages"))||[]
 
 images.push({
-src:e.target.result,
-category:document.getElementById("category").value
+
+src:data.secure_url,
+category:category
+
 })
 
 localStorage.setItem("galleryImages",JSON.stringify(images))
 
 alert("Image uploaded successfully")
 
-preview.src=""
-
-imageInput.value=""
-
 loadImages()
 
-}
-
-reader.readAsDataURL(file)
+})
 
 }
-
 
 /* Load Images */
 

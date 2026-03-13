@@ -16,24 +16,7 @@ background:#f4f6f9;
 
 
 /* Navbar */
-.nav-links{
-display:flex;
-list-style:none;
-gap:30px;
-margin:0;
-padding:0;
-}
 
-.nav-links a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:600;
-}
-
-.nav-links a:hover{
-color:#ff7a00;
-}
 
 
 /* Admin Panel Container */

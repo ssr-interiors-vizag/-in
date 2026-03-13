@@ -58,17 +58,27 @@ cursor:pointer;
 
 </div>
 <script>
-function login(){
-var pass = document.getElementById("password").value;
+  function login(){
 
-if(pass === "Niranjan@123"){
-localStorage.setItem("adminLogin","true");
-window.location.href="admin.html";
+let password=document.getElementById("password").value
+
+if(password=== "Niranjan@123"){   // your admin password
+
+localStorage.setItem("admin","true")
+
+window.location.href="admin.html"
+
 }
 else{
-alert("Wrong Password");
+
+alert("Wrong Password")
+
 }
+
 }
+
+
+
 </script>
 
 

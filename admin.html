@@ -168,6 +168,12 @@ border-radius:4px;
 
 </div>
 <script>
+  /* Protect admin page */
+
+if(localStorage.getItem("admin") !== "true"){
+window.location.href="login.html"
+}
+
 
 
 /* Sidebar navigation */

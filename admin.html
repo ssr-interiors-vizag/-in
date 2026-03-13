@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SSR Interiors Admin</title>
+<title>SSR Interiors Admin Panel</title>
 
 <link rel="stylesheet" href="css/admin.css">
 
@@ -20,15 +20,15 @@
 
 <div class="sidebar">
 
-<h2>Admin</h2>
+<h2>SSR Admin</h2>
 
 <ul>
 
-<li><a href="#">Dashboard</a></li>
-<li><a href="#">Upload Gallery</a></li>
-<li><a href="#">Manage Images</a></li>
-<li><a href="#">Bookings</a></li>
-<li><a href="#">Logout</a></li>
+<li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+<li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
+<li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
+<li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
+<li><a href="#" onclick="showSection('logout')">Logout</a></li>
 
 </ul>
 
@@ -39,12 +39,21 @@
 
 <div class="main-content">
 
-<div class="topbar">
 
-<h1>SSR Interiors Admin Panel</h1>
+<!-- Dashboard -->
+
+<div id="dashboard" class="section">
+
+<h1>Dashboard</h1>
+
+<p>Welcome to SSR Interiors Admin Panel</p>
 
 </div>
 
+
+<!-- Upload Section -->
+
+<div id="upload" class="section">
 
 <div class="card">
 
@@ -60,21 +69,80 @@
 
 </div>
 
+
+<!-- Manage Images -->
+
+<div id="manage" class="section">
+
+<h1>Manage Images</h1>
+
+<p>Uploaded images will appear here.</p>
+
 </div>
+
+
+<!-- Bookings -->
+
+<div id="bookings" class="section">
+
+<h1>Bookings</h1>
+
+<p>Customer booking requests will appear here.</p>
+
+</div>
+
+
+<!-- Logout -->
+
+<div id="logout" class="section">
+
+<h1>Logout</h1>
+
+<p>You have logged out.</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
 
 <script>
 
-const imageInput = document.getElementById("imageInput");
-const preview = document.getElementById("preview");
+/* Sidebar navigation */
 
-imageInput.onchange = evt => {
-const [file] = imageInput.files
-if (file) {
-preview.src = URL.createObjectURL(file)
+function showSection(sectionId){
+
+let sections = document.querySelectorAll(".section");
+
+sections.forEach(section=>{
+section.style.display="none";
+})
+
+document.getElementById(sectionId).style.display="block";
+
 }
+
+
+/* Image Preview */
+
+const imageInput=document.getElementById("imageInput");
+const preview=document.getElementById("preview");
+
+imageInput.onchange=evt=>{
+
+const[file]=imageInput.files
+
+if(file){
+preview.src=URL.createObjectURL(file)
+}
+
 }
 
 </script>
 
 </body>
+
 </html>

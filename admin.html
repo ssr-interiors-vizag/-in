@@ -69,7 +69,8 @@ border-radius:4px;
 <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
 <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
 <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
-<li><a href="#" onclick="showSection('logout')">Logout</a></li>
+<li><a href="#" onclick="logout()">Logout</a></li>
+
 
 </ul>
 
@@ -304,6 +305,14 @@ loadImages()
 /* Load images on page start */
 
 loadImages()
+  function logout(){
+
+localStorage.removeItem("admin")
+
+window.location.href="index.html"
+
+}
+
 
 </script>
 

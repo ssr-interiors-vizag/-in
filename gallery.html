@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | SSR Interiors Vizag</title>
-
-<link rel="stylesheet" href="css/gallery.css">
 
 <style>
 
@@ -16,6 +15,8 @@ font-family:Arial;
 background:#111;
 color:white;
 }
+
+/* Header */
 
 header{
 display:flex;
@@ -29,7 +30,14 @@ nav a{
 color:white;
 margin-left:20px;
 text-decoration:none;
+font-size:16px;
 }
+
+nav a:hover{
+color:#ff9800;
+}
+
+/* Gallery Sections */
 
 .gallery-section{
 padding:40px;
@@ -37,13 +45,17 @@ padding:40px;
 
 .gallery-section h2{
 margin-bottom:20px;
+color:#ff9800;
 }
+
+/* Horizontal gallery */
 
 .gallery-row{
 display:flex;
 overflow-x:auto;
 gap:20px;
 padding-bottom:20px;
+scroll-behavior:smooth;
 }
 
 .gallery-row img{
@@ -56,6 +68,8 @@ cursor:pointer;
 .gallery-row img:hover{
 transform:scale(1.1);
 }
+
+/* Footer */
 
 footer{
 background:black;
@@ -105,7 +119,7 @@ margin-top:40px;
 </section>
 
 
-<!-- Bedroom Interiors -->
+<!-- Bedroom -->
 
 <section class="gallery-section">
 
@@ -113,7 +127,7 @@ margin-top:40px;
 
 <div class="gallery-row">
 
-https://res.cloudinary.com/depeb35y3/image/upload/v1773336003/commercial_xts8ym.jpg
+<img src="https://res.cloudinary.com/depeb35y3/image/upload/v1773336003/commercial_xts8ym.jpg">
 <img src="images/gallery/bedroom2.jpg">
 <img src="images/gallery/bedroom3.jpg">
 <img src="images/gallery/bedroom4.jpg">
@@ -135,6 +149,42 @@ https://res.cloudinary.com/depeb35y3/image/upload/v1773336003/commercial_xts8ym.
 <img src="images/gallery/living2.jpg">
 <img src="images/gallery/living3.jpg">
 <img src="images/gallery/living4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- Wardrobe Designs -->
+
+<section class="gallery-section">
+
+<h2>Wardrobe Designs</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/wardrobe1.jpg">
+<img src="images/gallery/wardrobe2.jpg">
+<img src="images/gallery/wardrobe3.jpg">
+<img src="images/gallery/wardrobe4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- False Ceiling -->
+
+<section class="gallery-section">
+
+<h2>False Ceiling Designs</h2>
+
+<div class="gallery-row">
+
+<img src="images/gallery/ceiling1.jpg">
+<img src="images/gallery/ceiling2.jpg">
+<img src="images/gallery/ceiling3.jpg">
+<img src="images/gallery/ceiling4.jpg">
 
 </div>
 

@@ -215,6 +215,23 @@ margin-top:40px;
 <p>© 2026 SSR Interiors Vizag</p>
 
 </footer>
+const galleryImages = JSON.parse(localStorage.getItem("galleryImages")) || [];
+
+galleryImages.forEach(img => {
+
+const container = document.querySelector("." + img.category);
+
+if(container){
+
+let image = document.createElement("img");
+
+image.src = img.src;
+
+container.appendChild(image);
+
+}
+
+});
 
 </body>
 

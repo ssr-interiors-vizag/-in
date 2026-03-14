@@ -1,17 +1,26 @@
+/* GENERAL STYLES */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f5f5f5;
 }
 
-/* HEADER & NAV */
+/* HEADER & NAVIGATION */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #111;
-    color: white;
-    padding: 15px 40px;
+    background: white; /* Changed to white to match your logo background */
+    color: #333;
+    padding: 10px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+}
+
+/* LOGO SIZE CONTROL */
+.logo img {
+    height: 65px; /* Fixed height to prevent "huge" logo */
+    width: auto;
+    display: block;
 }
 
 .nav-links {
@@ -23,31 +32,37 @@ header {
 }
 
 .nav-links a {
-    color: white;
+    color: #333; /* Dark text for the white header */
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
+    transition: 0.3s;
 }
 
-.nav-links a:hover { color: #ff7a00; }
+.nav-links a:hover {
+    color: #ff7a00; /* SSR Brand Orange */
+}
 
-/* CONTACT SECTION WRAPPER */
+/* CONTACT SECTION */
 .contact {
     padding: 80px 20px;
     text-align: center;
 }
 
-.contact h2 { font-size: 40px; margin-bottom: 10px; }
+.contact h2 { 
+    font-size: 40px; 
+    margin-bottom: 10px; 
+}
 
-/* FLEX CONTAINER - This keeps left and right side-by-side */
+/* FLEX CONTAINER - Side-by-side layout */
 .contact-container {
     display: flex;
     justify-content: center;
     gap: 30px;
     max-width: 1100px;
     margin: 40px auto 0;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-    align-items: stretch; /* Makes both cards the same height */
+    flex-wrap: wrap; 
+    align-items: stretch;
 }
 
 /* LEFT SIDE: INFO CARD */
@@ -76,12 +91,13 @@ header {
     justify-content: center;
     border-radius: 50%;
     background: #ffe9d6;
+    font-size: 20px;
 }
 
 .details strong { display: block; font-size: 16px; }
 .details a { text-decoration: none; color: #ff7a00; font-size: 14px; }
 
-/* RIGHT SIDE: PHOTO + FORM CONTAINER */
+/* RIGHT SIDE: PHOTO (TOP) + FORM (BOTTOM) */
 .form-photo-container {
     background: white;
     border-radius: 10px;
@@ -89,14 +105,14 @@ header {
     max-width: 400px;
     flex: 1;
     display: flex;
-    flex-direction: column; /* Photo on top, form on bottom */
+    flex-direction: column;
     overflow: hidden; 
 }
 
 .top-photo {
-    flex: 1; /* Takes up top half */
+    flex: 1; 
     background: #e0e0e0;
-    min-height: 200px;
+    min-height: 220px; /* Space reserved for your interior photo */
 }
 
 .top-photo img {
@@ -120,7 +136,12 @@ header {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    display: block; /* Important: keeps them from going side-by-side */
+    display: block; 
+}
+
+.contact-form-bottom textarea {
+    height: 100px;
+    resize: none;
 }
 
 .contact-form-bottom button {
@@ -132,25 +153,20 @@ header {
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
-
-
-
-    .logo img {
-    height: 60px; /* Adjust this number to change the size */
-    width: auto;  /* This prevents the logo from looking stretched */
-    display: block;
-    max-width: 100%; 
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #111;
-    color: white;
-    padding: 10px 40px; /* Thinner padding for a sleeker look */
-}
     font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-footer { background: black; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+.contact-form-bottom button:hover {
+    background: #e56700;
+}
+
+/* FOOTER */
+footer { 
+    background: black; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 40px; 
+}

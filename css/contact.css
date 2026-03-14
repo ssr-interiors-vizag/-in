@@ -132,6 +132,24 @@ header {
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
+
+
+
+    .logo img {
+    height: 60px; /* Adjust this number to change the size */
+    width: auto;  /* This prevents the logo from looking stretched */
+    display: block;
+    max-width: 100%; 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    color: white;
+    padding: 10px 40px; /* Thinner padding for a sleeker look */
+}
     font-weight: bold;
 }
 

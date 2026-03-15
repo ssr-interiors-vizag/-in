@@ -38,7 +38,7 @@ header {
 
 /* Target the image itself to stop it from taking over the page */
 .logo-group img {
-    height: 50px;       /* This controls the navbar height */
+    height: 30px;       /* This controls the navbar height */
     width: auto;        /* Keeps the proportions correct */
     display: block;
     object-fit: contain;
@@ -65,7 +65,9 @@ header {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {

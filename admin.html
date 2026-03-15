@@ -1,330 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SSR Interiors Admin Panel</title>
-
-<link rel="stylesheet" href="css/admin.css">
-
-<style>
-
-.section{
-display:none;
-}
-
-#dashboard{
-display:block;
-}
-
-#preview{
-width:100%;
-max-width:400px;
-margin-top:15px;
-border-radius:8px;
-}
-
-.manage-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.manage-grid img{
-width:100%;
-border-radius:8px;
-}
-
-.delete-btn{
-margin-top:5px;
-background:red;
-color:white;
-border:none;
-padding:5px 10px;
-cursor:pointer;
-border-radius:4px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSR Interiors Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        .section { display: none; }
+        #dashboard { display: block; }
+        #preview { width: 100%; max-width: 400px; margin-top: 15px; border-radius: 8px; }
+        .manage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .manage-grid div { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .manage-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+        .delete-btn { margin-top: 10px; background: #ff4444; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; width: 100%; }
+        .delete-btn:hover { background: #cc0000; }
+        .category-tag { font-size: 12px; color: #666; text-transform: uppercase; margin-top: 5px; display: block; }
+    </style>
 </head>
-
 <body>
 
 <div class="dashboard">
+    <div class="sidebar">
+        <h2>SSR Admin</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
+            <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
+            <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
+            <li><a href="#" onclick="logout(); return false;">Logout</a></li>
+        </ul>
+    </div>
 
-<!-- Sidebar -->
+    <div class="main-content">
+        <div id="dashboard" class="section">
+            <h1>Dashboard</h1>
+            <p>Welcome to SSR Interiors Admin Panel. Your updates are now synced to Firebase Cloud.</p>
+        </div>
 
-<div class="sidebar">
+        <div id="upload" class="section">
+            <div class="card">
+                <h2>Upload Gallery Image</h2>
+                <input type="file" id="imageInput" accept="image/*">
+                <br><br>
+                <select id="category">
+                    <option value="kitchen">Modular Kitchen</option>
+                    <option value="bedroom">Bedroom</option>
+                    <option value="living">Living Room</option>
+                    <option value="wardrobe">Wardrobe</option>
+                    <option value="ceiling">False Ceiling</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <br><br>
+                <img id="preview">
+                <br><br>
+                <button id="uploadBtn" onclick="uploadImage()">Upload Image</button>
+            </div>
+        </div>
 
-<h2>SSR Admin</h2>
+        <div id="manage" class="section">
+            <h1>Manage Images</h1>
+            <div id="imageContainer" class="manage-grid"></div>
+        </div>
 
-<ul>
-
-<li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
-<li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
-<li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
-<li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
-<li><a href="#" onclick="logout(); return false;">Logout</a></li>
-
-
-
-
-</ul>
-
+        <div id="bookings" class="section">
+            <h1>Bookings</h1>
+            <p>Customer booking requests will appear here.</p>
+        </div>
+    </div>
 </div>
 
-
-<!-- Main Content -->
-
-<div class="main-content">
-
-
-<!-- Dashboard -->
-
-<div id="dashboard" class="section">
-
-<h1>Dashboard</h1>
-
-<p>Welcome to SSR Interiors Admin Panel</p>
-
-</div>
-
-
-<!-- Upload Section -->
-
-<div id="upload" class="section">
-
-<div class="card">
-
-<h2>Upload Gallery Image</h2>
-
-<input type="file" id="imageInput">
-
-<br><br>
-
-<select id="category">
-
-<option value="kitchen">Modular Kitchen</option>
-<option value="bedroom">Bedroom</option>
-<option value="living">Living Room</option>
-<option value="wardrobe">Wardrobe</option>
-<option value="ceiling">False Ceiling</option>
-<option value="commercial">Commercial</option>
-
-</select>
-
-<br><br>
-
-<img id="preview">
-
-<br><br>
-
-<button onclick="uploadImage()">Upload Image</button>
-
-</div>
-
-</div>
-
-
-<!-- Manage Images -->
-
-<div id="manage" class="section">
-
-<h1>Manage Images</h1>
-
-<div id="imageContainer" class="manage-grid"></div>
-
-</div>
-
-
-<!-- Bookings -->
-
-<div id="bookings" class="section">
-
-<h1>Bookings</h1>
-
-<p>Customer booking requests will appear here.</p>
-
-</div>
-
-
-<!-- Logout -->
-
-<div id="logout" class="section">
-
-<h1>Logout</h1>
-
-<p>You have logged out.</p>
-
-</div>
-
-
-</div>
-
-</div>
-<script>
-  /* Protect admin page */
-
-if(localStorage.getItem("admin") !== "true"){
-window.location.href="login.html"
-}
-
-
-
-/* Sidebar navigation */
-
-function showSection(sectionId){
-
-let sections=document.querySelectorAll(".section")
-
-sections.forEach(section=>{
-section.style.display="none"
-})
-
-document.getElementById(sectionId).style.display="block"
-
-}
-
-
-/* Image Preview */
-
-const imageInput=document.getElementById("imageInput")
-const preview=document.getElementById("preview")
-
-imageInput.onchange=evt=>{
-
-const[file]=imageInput.files
-
-if(file){
-preview.src=URL.createObjectURL(file)
-}
-
-}
-
-
-/* Upload Image */
-
-function uploadImage(){
-
-const file=imageInput.files[0]
-const category=document.getElementById("category").value
-
-if(!file){
-alert("Please select an image")
-return
-}
-
-const formData=new FormData()
-
-formData.append("file",file)
-formData.append("upload_preset","ssr_gallery")
-
-fetch("https://api.cloudinary.com/v1_1/depeb35y3/image/upload",{
-
-method:"POST",
-body:formData
-
-})
-.then(res=>res.json())
-.then(data=>{
-
-let images=JSON.parse(localStorage.getItem("galleryImages"))||[]
-
-images.push({
-
-src:data.secure_url,
-public_id:data.public_id,
-category:category
-
-})
-
-localStorage.setItem("galleryImages",JSON.stringify(images))
-
-alert("Image uploaded successfully")
-
-preview.src=""
-imageInput.value=""
-
-loadImages()
-
-})
-
-}
-
-
-/* Load Images */
-
-function loadImages(){
-
-const container=document.getElementById("imageContainer")
-
-container.innerHTML=""
-
-let images=JSON.parse(localStorage.getItem("galleryImages"))||[]
-
-images.forEach((img,index)=>{
-
-let div=document.createElement("div")
-
-div.innerHTML=`
-<img src="${img.src}">
-<br>
-<button class="delete-btn" onclick="deleteImage(${index})">Delete</button>
-`
-
-container.appendChild(div)
-
-})
-
-}
-
-
-/* Delete Image */
-
-function deleteImage(index){
-
-let images = JSON.parse(localStorage.getItem("galleryImages")) || []
-
-let publicId = images[index].public_id
-
-fetch("https://api.cloudinary.com/v1_1/depeb35y3/image/destroy",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-public_id:publicId
-})
-})
-
-images.splice(index,1)
-
-localStorage.setItem("galleryImages",JSON.stringify(images))
-
-loadImages()
-
-}
-
-
-/* Load images on page start */
-
-loadImages()
-  
-function logout(){
-localStorage.removeItem("admin")
-window.location.href="index.html"
-}
-
-/* Prevent opening admin page without login */
-
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Your Firebase configuration from Screenshot
+    const firebaseConfig = {
+        apiKey: "AIzaSyAPXXg5Lnrz31sl9JObtVNvWc7d4lY6LcY",
+        authDomain: "ssr-interious-vizag.firebaseapp.com",
+        projectId: "ssr-interious-vizag",
+        storageBucket: "ssr-interious-vizag.firebasestorage.app",
+        messagingSenderId: "612908277458",
+        appId: "1:612908277458:web:a914752013dfc60a13970b",
+        measurementId: "G-6SRSN62R2M"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // --- SECURITY CHECK ---
+    if(localStorage.getItem("admin") !== "true"){
+        window.location.href="login.html";
+    }
+
+    // --- NAVIGATION ---
+    window.showSection = function(sectionId) {
+        document.querySelectorAll(".section").forEach(s => s.style.display = "none");
+        document.getElementById(sectionId).style.display = "block";
+        if(sectionId === 'manage') loadImages();
+    };
+
+    // --- PREVIEW ---
+    const imageInput = document.getElementById("imageInput");
+    const preview = document.getElementById("preview");
+    imageInput.onchange = () => {
+        const [file] = imageInput.files;
+        if (file) preview.src = URL.createObjectURL(file);
+    };
+
+    // --- UPLOAD TO CLOUDINARY + FIREBASE ---
+    window.uploadImage = async function() {
+        const file = imageInput.files[0];
+        const category = document.getElementById("category").value;
+        const btn = document.getElementById("uploadBtn");
+
+        if(!file) return alert("Please select an image");
+
+        btn.disabled = true;
+        btn.innerText = "Uploading...";
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "ssr_gallery");
+
+        try {
+            // 1. Upload to Cloudinary
+            const res = await fetch("https://api.cloudinary.com/v1_1/depeb35y3/image/upload", {
+                method: "POST",
+                body: formData
+            });
+            const cloudinaryData = await res.json();
+
+            // 2. Save Link to Firebase Firestore
+            await addDoc(collection(db, "galleryImages"), {
+                src: cloudinaryData.secure_url,
+                public_id: cloudinaryData.public_id,
+                category: category,
+                createdAt: Date.now()
+            });
+
+            alert("Image added to Gallery successfully!");
+            preview.src = "";
+            imageInput.value = "";
+            showSection('manage');
+        } catch (error) {
+            console.error(error);
+            alert("Error uploading image");
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Upload Image";
+        }
+    };
+
+    // --- LOAD IMAGES FROM FIREBASE ---
+    window.loadImages = async function() {
+        const container = document.getElementById("imageContainer");
+        container.innerHTML = "<p>Loading your gallery...</p>";
+
+        try {
+            const q = query(collection(db, "galleryImages"), orderBy("createdAt", "desc"));
+            const querySnapshot = await getDocs(q);
+            container.innerHTML = "";
+
+            querySnapshot.forEach((docSnap) => {
+                const img = docSnap.data();
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <img src="${img.src}">
+                    <span class="category-tag">${img.category}</span>
+                    <button class="delete-btn" onclick="deleteImage('${docSnap.id}')">Delete</button>
+                `;
+                container.appendChild(div);
+            });
+        } catch (error) {
+            container.innerHTML = "Error loading images.";
+        }
+    };
+
+    // --- DELETE IMAGE ---
+    window.deleteImage = async function(docId) {
+        if(!confirm("Are you sure you want to delete this image?")) return;
+
+        try {
+            await deleteDoc(doc(db, "galleryImages", docId));
+            alert("Deleted successfully!");
+            loadImages();
+        } catch (error) {
+            alert("Error deleting image.");
+        }
+    };
+
+    window.logout = function() {
+        localStorage.removeItem("admin");
+        window.location.href="index.html";
+    };
+
+    // Initial load
+    loadImages();
 
 </script>
 
-
-
-
+</body>
+</html>

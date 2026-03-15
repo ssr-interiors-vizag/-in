@@ -1,234 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | SSR Interiors Vizag</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery | SSR Interiors Vizag</title>
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111;
+            padding: 15px 40px;
+            border-bottom: 1px solid #333;
+        }
 
-<style>
+        nav a {
+            color: white;
+            margin-left: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
 
-body{
-margin:0;
-font-family:Arial;
-background:#111;
-color:white;
-}
+        nav a:hover {
+            color: #ff7a00;
+        }
 
-/* Header */
+        /* Gallery Sections */
+        .gallery-section {
+            padding: 40px;
+        }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#111;
-colour: white
-padding:15px 40px;
-}
-   .nav-links{
-    display:flex;
-    list-style:none;
-    gap:30px;
-    margin:0;
-    padding:0;}
+        .gallery-section h2 {
+            margin-bottom: 20px;
+            color: #ff9800;
+            border-left: 5px solid #ff7a00;
+            padding-left: 15px;
+        }
 
-nav a{
-color:white;
-margin-left:30px;
-text-decoration:none;
-font-size:18px;
-  font-weight:600;
-}
+        /* Horizontal gallery */
+        .gallery-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            scroll-behavior: smooth;
+            min-height: 220px; /* Keeps layout stable while loading */
+        }
 
-nav a:hover{
-color:#ff7a00;
-}
+        /* Custom Scrollbar for better look */
+        .gallery-row::-webkit-scrollbar {
+            height: 8px;
+        }
+        .gallery-row::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
 
-/* Gallery Sections */
+        .gallery-row img {
+            height: 220px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            object-fit: cover;
+        }
 
-.gallery-section{
-padding:40px;
-}
+        .gallery-row img:hover {
+            transform: scale(1.05);
+        }
 
-.gallery-section h2{
-margin-bottom:20px;
-color:#ff9800;
-}
-
-/* Horizontal gallery */
-
-.gallery-row{
-display:flex;
-overflow-x:auto;
-gap:20px;
-padding-bottom:20px;
-scroll-behavior:smooth;
-}
-
-.gallery-row img{
-height:220px;
-border-radius:8px;
-transition:transform 0.3s;
-cursor:pointer;
-}
-
-.gallery-row img:hover{
-transform:scale(1.1);
-}
-
-/* Footer */
-
-footer{
-background:black;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
-
-</style>
-
+        footer {
+            background: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-
-<h1>SSR INTERIORS VIZAG</h1>
-
-<nav>
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Admin</a>
-
-</nav>
-
+    <h1>SSR INTERIORS VIZAG</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Admin</a>
+    </nav>
 </header>
 
-
-<!-- Modular Kitchen -->
-
 <section class="gallery-section">
-
-<h2>Modular Kitchen Designs</h2>
-
-<div class="gallery-row kitchen">
-
-
-</div>
-
+    <h2>Modular Kitchen Designs</h2>
+    <div class="gallery-row kitchen" id="kitchen-row"></div>
 </section>
 
-
-<!-- Bedroom -->
-
 <section class="gallery-section">
-
-<h2>Bedroom Interiors</h2>
-
-<div class="gallery-row bedroom">
-
-
-<img src="https://res.cloudinary.com/depeb35y3/image/upload/v1773336003/commercial_xts8ym.jpg">
-
-
-</div>
-
+    <h2>Bedroom Interiors</h2>
+    <div class="gallery-row bedroom" id="bedroom-row"></div>
 </section>
 
-
-<!-- Living Room -->
-
 <section class="gallery-section">
-
-<h2>Living Room Designs</h2>
-
-<div class="gallery-row livingroom">
-
-
-</div>
-
+    <h2>Living Room Designs</h2>
+    <div class="gallery-row living" id="living-row"></div>
 </section>
 
-
-<!-- Wardrobe Designs -->
-
 <section class="gallery-section">
-
-<h2>Wardrobe Designs</h2>
-  
-<div class="gallery-row wardrobe">
-
-
-</div>
-
+    <h2>Wardrobe Designs</h2>
+    <div class="gallery-row wardrobe" id="wardrobe-row"></div>
 </section>
 
-
-<!-- False Ceiling -->
-
-
 <section class="gallery-section">
-
-<h2>False Ceiling Designs</h2>
-<div class="gallery-row ceiling">
-
-
-</div>
-
+    <h2>False Ceiling Designs</h2>
+    <div class="gallery-row ceiling" id="ceiling-row"></div>
 </section>
 
-
-<!-- Commercial -->
-
 <section class="gallery-section">
-
-<h2>Commercial Projects</h2>
-
-<div class="gallery-row commercial">
-
-
-
-</div>
-
+    <h2>Commercial Projects</h2>
+    <div class="gallery-row commercial" id="commercial-row"></div>
 </section>
+
 <footer>
-
-<p>© 2026 SSR Interiors Vizag</p>
-
+    <p>© 2026 SSR Interiors Vizag</p>
 </footer>
 
-<script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, query, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-const galleryImages = JSON.parse(localStorage.getItem("galleryImages")) || [];
+    // Your Firebase Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyAPXXg5Lnrz31sl9JObtVNvWc7d4lY6LcY",
+        authDomain: "ssr-interious-vizag.firebaseapp.com",
+        projectId: "ssr-interious-vizag",
+        storageBucket: "ssr-interious-vizag.firebasestorage.app",
+        messagingSenderId: "612908277458",
+        appId: "1:612908277458:web:a914752013dfc60a13970b",
+        measurementId: "G-6SRSN62R2M"
+    };
 
-galleryImages.forEach(img => {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-const container = document.querySelector("." + img.category);
+    async function fetchGallery() {
+        try {
+            // Fetch images from Firebase sorted by newest first
+            const q = query(collection(db, "galleryImages"), orderBy("createdAt", "desc"));
+            const querySnapshot = await getDocs(q);
 
-if(container){
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                // Matches the category name to the class in the HTML (e.g., "bedroom")
+                const container = document.querySelector("." + data.category);
 
-let image = document.createElement("img");
+                if (container) {
+                    const imgElement = document.createElement("img");
+                    imgElement.src = data.src;
+                    imgElement.alt = "SSR Interiors Design";
+                    
+                    // Add click to enlarge feature (optional)
+                    imgElement.onclick = () => window.open(data.src, '_blank');
+                    
+                    container.appendChild(imgElement);
+                }
+            });
+        } catch (error) {
+            console.error("Error loading gallery:", error);
+        }
+    }
 
-image.src = img.src;
-
-container.appendChild(image);
-
-}
-
-});
-
+    // Run the fetch function
+    fetchGallery();
 </script>
 
 </body>
-</html>
-
-
-
-</body>
-
 </html>

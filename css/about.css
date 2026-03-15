@@ -28,16 +28,28 @@ header {
 }
 
 /* Grouping Logo and Text inside the Link */
+/* Target the link container */
 .logo-group {
     display: flex;
-    align-items: center; /* Vertically centers text with logo */
-    text-decoration: none; /* Removes underline from the link */
-    gap: 15px; /* Space between logo and text */
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
 }
 
+/* Target the image itself to stop it from taking over the page */
 .logo-group img {
-    height: 60px; /* Adjust this to match your logo height */
-    width: auto;
+    height: 50px;       /* This controls the navbar height */
+    width: auto;        /* Keeps the proportions correct */
+    display: block;
+    object-fit: contain;
+}
+
+/* Style the text next to it */
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #111;
+    white-space: nowrap; /* Prevents the name from breaking into two lines */
 }
 
 .logo-text {

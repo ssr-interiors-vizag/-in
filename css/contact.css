@@ -181,3 +181,41 @@ footer {
     padding: 20px; 
     margin-top: 40px; 
 }
+
+
+/* THE LOGO FIX */
+
+/* 1. Reset the link container */
+.logo-group {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    width: auto !important; /* Prevents it from stretching */
+}
+
+/* 2. Force the image size */
+.nav-logo-img {
+    height: 60px !important;  /* Controls the height */
+    width: auto !important;    /* Keeps the shape perfect */
+    max-width: 150px !important; 
+    display: block !important;
+}
+
+/* 3. Style the text next to it */
+.logo-text {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #111 !important;
+    margin-left: 15px !important;
+    white-space: nowrap !important;
+}
+
+/* 4. Ensure the header doesn't expand */
+header {
+    height: 80px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 40px !important;
+    background: white !important;
+}

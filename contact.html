@@ -12,7 +12,7 @@
             background: #f5f5f5;
         }
 
-        /* HEADER - White background to match logo */
+        /* HEADER FIX - Side-by-Side Logo & Text */
         header {
             display: flex;
             justify-content: space-between;
@@ -20,12 +20,31 @@
             background: white;
             padding: 10px 40px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 80px; /* Maintains a fixed navbar height */
         }
 
-        .logo img {
-            height: 70px; /* Limits logo size */
-            width: auto;
+        /* This container keeps the image and text in one line */
+        .logo-group {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px; /* Space between logo and text */
+        }
+
+        /* THIS IS THE FIX FOR THE HUGE LOGO */
+        .nav-logo-img {
+            height: 60px !important; 
+            width: auto !important;
             display: block;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap; /* Prevents text from wrapping */
         }
 
         .nav-links {
@@ -74,6 +93,9 @@
             max-width: 350px;
             flex: 1;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .info-card {
@@ -111,9 +133,8 @@
         }
 
         .top-photo {
-            flex: 1;
+            height: 200px; /* Fixed height for the photo area */
             background: #e0e0e0;
-            min-height: 200px;
         }
 
         .contact-image {
@@ -167,7 +188,7 @@
 </head>
 <body>
 
-  <header>
+<header>
     <a href="index.html" class="logo-group">
         <img src="logo.png" alt="SSR Interiors Logo" class="nav-logo-img">
         <span class="logo-text">SSR INTERIORS VIZAG</span>
@@ -213,14 +234,12 @@
                 </div>
             </div>
             <div class="info-card">
-    <div class="icon-circle">▶</div>
-    <div class="details">
-        <strong>YouTube</strong>
-        <a href="https://youtube.com/@ssrvizaginteriors" target="_blank">
-            Watch our Projects
-        </a>
-    </div>
-</div>
+                <div class="icon-circle">▶</div>
+                <div class="details">
+                    <strong>YouTube</strong>
+                    <a href="https://youtube.com/@ssrvizaginteriors" target="_blank">Watch our Projects</a>
+                </div>
+            </div>
         </div>
 
         <div class="form-photo-container">

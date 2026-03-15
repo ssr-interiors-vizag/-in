@@ -132,16 +132,24 @@
             min-height: 550px;
         }
 
-        .top-photo {
-            height: 200px; /* Fixed height for the photo area */
-            background: #e0e0e0;
-        }
+       /* 1. Fix the container background and height */
+.top-photo {
+    background: #ffffff; /* Matches your logo background */
+    height: 250px;       /* Increased height so the logo isn't squeezed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;       /* Prevents the logo from touching the edges */
+    overflow: hidden;
+}
 
-        .contact-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* 2. Fix the image so it shows fully */
+.top-photo img, .contact-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Forces the WHOLE image to be visible */
+    display: block;
+}
 
         .contact-form-bottom {
             padding: 30px;

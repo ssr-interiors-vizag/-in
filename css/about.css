@@ -17,49 +17,8 @@ header {
 }
 
 /* NAVBAR */
-/* Navbar Layout */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 10px 5%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
-/* Grouping Logo and Text inside the Link */
-/* Target the link container */
-.logo-group {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 12px;
-}
 
-/* Target the image itself to stop it from taking over the page */
-.logo-group img {
-    height: 30px;       /* This controls the navbar height */
-    width: auto;        /* Keeps the proportions correct */
-    display: block;
-    object-fit: contain;
-}
-
-/* Style the text next to it */
-.logo-text {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #111;
-    white-space: nowrap; /* Prevents the name from breaking into two lines */
-}
-
-.logo-text {
-    font-size: 20px;
-    font-weight: 800;
-    color: #111; /* Dark professional color */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 /* Nav Links Styling */
 .nav-links {

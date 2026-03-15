@@ -17,28 +17,24 @@ header {
 }
 
 /* NAVBAR */
-
-
-
-/* Nav Links Styling */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
-    margin: 0;
+    gap: 30px
+    margine: 0;
     padding: 0;
 }
-
-.nav-links a {
+.nav-linka a {
+    colour: white;
     text-decoration: none;
-    color: #333;
+    font-size: 18px;
     font-weight: 600;
-    transition: 0.3s;
+}
+.nav-links a:hover {
+    colour: #ff7a00;
 }
 
-.nav-links a:hover {
-    color: #ff7a00; /* Orange highlight on hover */
-}
+
 /* About Section Container */
 .about {
     padding: 60px;

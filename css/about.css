@@ -17,23 +17,33 @@ header {
 }
 
 /* NAVBAR */
+/* Target the navigation links specifically */
+.nav-links a {
+    color: white !important;      /* Forces the text to be white */
+    text-decoration: none;        /* Removes the default underline */
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* 1. This prevents the "Violet/Purple" color after clicking */
+.nav-links a:visited {
+    color: white !important;
+}
+
+/* 2. This keeps your orange hover effect */
+.nav-links a:hover {
+    color: #ff7a00 !important;
+}
+
+/* 3. This ensures they are spaced out horizontally and not bunched up */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px
-    margine: 0;
+    gap: 30px; /* Adjust this number to change the space between links */
+    margin: 0;
     padding: 0;
 }
-.nav-linka a {
-    colour: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-}
-.nav-links a:hover {
-    colour: #ff7a00;
-}
-
 
 /* About Section Container */
 .about {

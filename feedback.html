@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback | SSR Interiors Vizag</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+/* Header */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#000;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:#ff9800;
+}
+
+/* Container */
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+/* Form */
+
+.feedback-form{
+background:#1c1c1c;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
+.feedback-form h2{
+margin-bottom:20px;
+color:#ff9800;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+border-radius:5px;
+}
+
+textarea{
+resize:none;
+height:100px;
+}
+
+button{
+background:#ff9800;
+color:white;
+border:none;
+padding:12px;
+border-radius:5px;
+cursor:pointer;
+width:100%;
+}
+
+button:hover{
+background:#e68900;
+}
+
+/* Feedback Display */
+
+.feedback-list{
+margin-top:40px;
+}
+
+.feedback-card{
+background:#1c1c1c;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 3px 8px rgba(0,0,0,0.5);
+}
+
+.feedback-card h4{
+margin:0;
+color:#ff9800;
+}
+
+.feedback-card p{
+margin-top:10px;
+}
+
+.rating{
+color:gold;
+margin-top:5px;
+}
+
+/* Footer */
+
+footer{
+background:black;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>SSR INTERIORS VIZAG</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="gallery.html">Gallery</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="feedback.html">Feedback</a>
+</nav>
+
+</header>
+
+
+<div class="container">
+
+<!-- Feedback Form -->
+
+<div class="feedback-form">
+
+<h2>Share Your Experience</h2>
+
+<input type="text" id="name" placeholder="Your Name">
+
+<select id="rating">
+<option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+<option value="4">⭐⭐⭐⭐ (Good)</option>
+<option value="3">⭐⭐⭐ (Average)</option>
+<option value="2">⭐⭐ (Poor)</option>
+<option value="1">⭐ (Bad)</option>
+</select>
+
+<textarea id="message" placeholder="Write your feedback..."></textarea>
+
+<button onclick="submitFeedback()">Submit Feedback</button>
+
+</div>
+
+
+<!-- Feedback Display -->
+
+<div class="feedback-list" id="feedbackList">
+
+<h2 style="color:#ff9800;">Customer Reviews</h2>
+
+</div>
+
+</div>
+
+
+<footer>
+<p>© 2026 SSR Interiors Vizag</p>
+</footer>
+
+
+<script type="module">
+
+// Import required Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// Your Firebase config (same as yours ✅)
+const firebaseConfig = {
+  apiKey: "AIzaSyD0qPXFjs19DB2uh16CR7xnUk9pAOb0aCo",
+  authDomain: "ssr-interiors-vizag.firebaseapp.com",
+  projectId: "ssr-interiors-vizag",
+  storageBucket: "ssr-interiors-vizag.firebasestorage.app",
+  messagingSenderId: "994958842998",
+  appId: "1:994958842998:web:1b4abf07ac99549b285357",
+  measurementId: "G-JVWVHX51NZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Collection reference
+const feedbackRef = collection(db, "feedbacks");
+
+// Submit Feedback
+window.submitFeedback = async function(){
+
+const name = document.getElementById("name").value;
+const rating = document.getElementById("rating").value;
+const message = document.getElementById("message").value;
+
+if(name === "" || message === ""){
+alert("Fill all fields");
+return;
+}
+
+await addDoc(feedbackRef,{
+name,
+rating,
+message,
+created: new Date()
+});
+
+alert("Feedback submitted!");
+
+document.getElementById("name").value="";
+document.getElementById("message").value="";
+};
+
+// Load feedback (REAL TIME)
+const q = query(feedbackRef, orderBy("created","desc"));
+
+onSnapshot(q,(snapshot)=>{
+
+const list = document.getElementById("feedbackList");
+
+list.innerHTML = "<h2 style='color:#ff9800;'>Customer Reviews</h2>";
+
+snapshot.forEach(doc=>{
+
+const fb = doc.data();
+
+let div = document.createElement("div");
+
+div.classList.add("feedback-card");
+
+div.innerHTML = `
+<h4>${fb.name}</h4>
+<div class="rating">${"⭐".repeat(fb.rating)}</div>
+<p>${fb.message}</p>
+`;
+
+list.appendChild(div);
+
+});
+
+});
+
+</script>
+
+
+</body>
+
+</html>

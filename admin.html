@@ -87,6 +87,52 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    window.uploadImage = async function() {
+
+    const file = imageInput.files[0];
+    const category = document.getElementById("category").value;
+    const btn = document.getElementById("uploadBtn");
+
+    if(!file){
+        alert("Please select an image");
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = "Uploading...";
+
+    const reader = new FileReader();
+
+    reader.onload = async function(e){
+
+        const base64Image = e.target.result;
+
+        try{
+
+            await addDoc(collection(db, "galleryImages"), {
+                src: base64Image,
+                category: category,
+                createdAt: Date.now()
+            });
+
+            alert("Image uploaded successfully!");
+
+            preview.src = "";
+            imageInput.value = "";
+
+        }catch(err){
+            console.error(err);
+            alert("Upload failed");
+        }finally{
+            btn.disabled = false;
+            btn.innerText = "Upload Image";
+        }
+
+    };
+
+    reader.readAsDataURL(file);
+};
+
 
     // --- SECURITY CHECK ---
     if(localStorage.getItem("admin") !== "true"){

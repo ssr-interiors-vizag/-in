@@ -136,7 +136,8 @@
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, query, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, collection, query, onSnapshot, orderBy }
+ from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
     // Your Firebase Config
     const firebaseConfig = {
@@ -152,35 +153,37 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    async function fetchGallery() {
-        try {
-            // Fetch images from Firebase sorted by newest first
-            const q = query(collection(db, "galleryImages"), orderBy("createdAt", "desc"));
-            const querySnapshot = await getDocs(q);
+    const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                // Matches the category name to the class in the HTML (e.g., "bedroom")
-                const container = document.querySelector("." + data.category);
+// ✅ ADD HERE (EXACT LOCATION)
 
-                if (container) {
-                    const imgElement = document.createElement("img");
-                    imgElement.src = data.src;
-                    imgElement.alt = "SSR Interiors Design";
-                    
-                    // Add click to enlarge feature (optional)
-                    imgElement.onclick = () => window.open(data.src, '_blank');
-                    
-                    container.appendChild(imgElement);
-                }
-            });
-        } catch (error) {
-            console.error("Error loading gallery:", error);
+const q = query(collection(db, "galleryImages"), orderBy("createdAt", "desc"));
+
+onSnapshot(q, (snapshot) => {
+
+    document.querySelectorAll(".gallery-row").forEach(row => row.innerHTML = "");
+
+    snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        const container = document.querySelector("." + data.category);
+
+        if (container) {
+            const imgElement = document.createElement("img");
+            imgElement.src = data.src;
+            imgElement.alt = "SSR Interiors Design";
+
+            imgElement.onclick = () => window.open(data.src, '_blank');
+
+            container.appendChild(imgElement);
         }
-    }
 
-    // Run the fetch function
-    fetchGallery();
+    });
+
+});
+
 </script>
 
 </body>

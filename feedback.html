@@ -185,11 +185,28 @@ margin-top:40px;
 
 
 <script type="module">
+  let userId = localStorage.getItem("userId");
+
+if(!userId){
+userId = "user_" + Date.now();
+localStorage.setItem("userId", userId);
+}
+
 
 // Import required Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } 
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+window.deleteFeedback = async function(id){
+
+if(confirm("Delete your feedback?")){
+await deleteDoc(doc(db, "feedbacks", id));
+}
+
+};
+
 
 // Your Firebase config (same as yours ✅)
 const firebaseConfig = {
@@ -255,7 +272,13 @@ div.innerHTML = `
 <h4>${fb.name}</h4>
 <div class="rating">${"⭐".repeat(fb.rating)}</div>
 <p>${fb.message}</p>
+
+${fb.userId === userId ? 
+`<button onclick="deleteFeedback('${doc.id}')">Delete</button>` 
+: ""}
+
 `;
+
 
 list.appendChild(div);
 

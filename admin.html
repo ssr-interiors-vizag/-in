@@ -121,6 +121,7 @@
                ">
 
         <button onclick="saveAnnouncement()"
+    
                 style="
                 margin-top:15px;
                 background:#ff9800;
@@ -136,6 +137,23 @@
             Save Announcement
 
         </button>
+        
+        <button onclick="deleteAnnouncement()"
+        style="
+        margin-top:10px;
+        background:red;
+        color:white;
+        border:none;
+        padding:12px 20px;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        width:100%;
+        ">
+
+    Delete Announcement
+
+</button>
 
     </div>
  </div>
@@ -333,6 +351,15 @@ document.getElementById("announcementInput").value;
 localStorage.setItem("announcement", text);
 
 alert("Announcement Saved!");
+
+};
+    window.deleteAnnouncement = function(){
+
+localStorage.removeItem("announcement");
+
+document.getElementById("announcementInput").value = "";
+
+alert("Announcement Deleted!");
 
 };
 

@@ -214,6 +214,143 @@
              color:#333;
              ">
         </div>
+        <div style="
+background:white;
+padding:30px;
+border-radius:12px;
+max-width:500px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+margin-top:30px;
+">
+
+<h2>🧱 Tile Calculator</h2>
+
+<input type="number" id="floorArea"
+placeholder="Floor Area (sq.ft)">
+
+<input type="number" id="tileSize"
+placeholder="Tile Size (sq.ft per tile)"
+style="margin-top:10px;">
+
+<button onclick="calculateTiles()"
+style="
+margin-top:15px;
+background:#ff9800;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:6px;
+font-weight:bold;
+">
+
+Calculate Tiles
+
+</button>
+
+<div id="tileResult"
+style="
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+">
+</div>
+            <div style="
+background:white;
+padding:30px;
+border-radius:12px;
+max-width:500px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+margin-top:30px;
+">
+
+<h2>🏠 False Ceiling Estimator</h2>
+
+<input type="number"
+id="ceilingArea"
+placeholder="Ceiling Area (sq.ft)">
+
+<button onclick="calculateCeiling()"
+style="
+margin-top:15px;
+background:#ff9800;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:6px;
+font-weight:bold;
+">
+
+Estimate Cost
+
+</button>
+
+<div id="ceilingResult"
+style="
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+">
+</div>
+                <div style="
+background:white;
+padding:30px;
+border-radius:12px;
+max-width:500px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+margin-top:30px;
+">
+
+<h2>💰 Interior Cost Estimator</h2>
+
+<input type="number"
+id="homeArea"
+placeholder="Home Area (sq.ft)">
+
+<select id="interiorType"
+style="
+margin-top:10px;
+width:100%;
+padding:12px;
+">
+
+<option value="1500">Basic Interior</option>
+<option value="2500">Premium Interior</option>
+<option value="4000">Luxury Interior</option>
+
+</select>
+
+<button onclick="calculateInterior()"
+style="
+margin-top:15px;
+background:#ff9800;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:6px;
+font-weight:bold;
+">
+
+Estimate Budget
+
+</button>
+
+<div id="interiorResult"
+style="
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+">
+</div>
+                    
+
+
+</div>
+</div>
+
+</div>
 
     </div>
 
@@ -440,6 +577,97 @@ document.getElementById("paintResult")
 .innerHTML = `
 Required Paint: 
 ${liters.toFixed(1)} Liters
+`;
+
+};
+    window.calculateTiles = function(){
+
+const area =
+Number(document.getElementById("floorArea").value);
+
+const tile =
+Number(document.getElementById("tileSize").value);
+
+if(area <=0 || tile <=0){
+alert("Enter valid values");
+return;
+}
+
+const total = Math.ceil(area / tile);
+
+document.getElementById("tileResult")
+.innerHTML = `Tiles Required: ${total}`;
+
+};
+    window.calculateCeiling = function(){
+
+const area =
+Number(document.getElementById("ceilingArea").value);
+
+if(area <=0){
+alert("Enter valid area");
+return;
+}
+
+const cost = area * 120;
+
+document.getElementById("ceilingResult")
+.innerHTML = `
+Estimated Cost: ₹${cost}
+`;
+
+};
+    window.calculateInterior = function(){
+
+const area =
+Number(document.getElementById("homeArea").value);
+
+const type =
+Number(document.getElementById("interiorType").value);
+
+if(area <=0){
+alert("Enter valid area");
+return;
+}
+
+const total = area * type;
+
+document.getElementById("interiorResult")
+.innerHTML = `
+Estimated Budget: ₹${total.toLocaleString()}
+`;
+
+};
+    window.calculateWallpaper = function(){
+
+const area =
+Number(document.getElementById("wallpaperArea").value);
+
+const rollCoverage = 57;
+
+const rolls =
+Math.ceil(area / rollCoverage);
+
+document.getElementById("wallpaperResult")
+.innerHTML =
+`Wallpaper Rolls Needed: ${rolls}`;
+
+};
+    window.calculateKitchen = function(){
+
+const length =
+Number(document.getElementById("kitchenLength").value);
+
+if(length <=0){
+alert("Enter valid size");
+return;
+}
+
+const cost = length * 15000;
+
+document.getElementById("kitchenResult")
+.innerHTML = `
+Estimated Kitchen Cost: ₹${cost.toLocaleString()}
 `;
 
 };

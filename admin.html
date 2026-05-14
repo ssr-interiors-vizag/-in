@@ -24,6 +24,7 @@
         <h2>SSR Admin</h2>
         <ul>
             <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('calculator')">Calculators</a></li>
             <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
             <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
             <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
@@ -157,6 +158,65 @@
 
     </div>
  </div>
+</div>
+    <div id="calculator" class="section">
+
+    <h1>Interior Calculators</h1>
+
+    <!-- PAINT CALCULATOR -->
+
+    <div style="
+        background:white;
+        padding:30px;
+        border-radius:12px;
+        max-width:500px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        margin-top:20px;
+    ">
+
+        <h2 style="margin-bottom:20px;">
+            🎨 Paint Calculator
+        </h2>
+
+        <input type="number"
+               id="paintArea"
+               placeholder="Enter Wall Area (sq.ft)"
+               style="
+               width:100%;
+               padding:12px;
+               border:1px solid #ccc;
+               border-radius:6px;
+               box-sizing:border-box;
+               ">
+
+        <button onclick="calculatePaint()"
+                style="
+                margin-top:15px;
+                background:#ff9800;
+                color:white;
+                border:none;
+                padding:12px;
+                border-radius:6px;
+                cursor:pointer;
+                font-weight:bold;
+                width:100%;
+                ">
+
+            Calculate Paint
+
+        </button>
+
+        <div id="paintResult"
+             style="
+             margin-top:20px;
+             font-size:18px;
+             font-weight:bold;
+             color:#333;
+             ">
+        </div>
+
+    </div>
+
 </div>
     
 
@@ -362,10 +422,29 @@ document.getElementById("announcementInput").value = "";
 alert("Announcement Deleted!");
 
 };
+window.calculatePaint = function(){
 
+const area =
+Number(document.getElementById("paintArea").value);
+
+if(area <= 0){
+
+alert("Enter valid area");
+return;
+
+}
+
+const liters = area / 120;
+
+document.getElementById("paintResult")
+.innerHTML = `
+Required Paint: 
+${liters.toFixed(1)} Liters
+`;
+
+};
 </script>
 
-</script>
 
 </body>
 </html>

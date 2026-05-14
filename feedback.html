@@ -270,10 +270,9 @@ await addDoc(feedbackRef,{
 name,
 rating,
 message,
-userId: userId,   // ✅ IMPORTANT FIX
-created: new Date()
+userId: userId,
+created: Date.now()
 });
-
 alert("Feedback submitted!");
 
 document.getElementById("name").value="";
@@ -308,7 +307,7 @@ div.classList.add("feedback-card");
 
 div.innerHTML = `
 <h4>${fb.name}</h4>
-<div class="rating">${"⭐".repeat(fb.rating)}</div>
+<div class="rating">${"⭐".repeat(Number(fb.rating))}</div>
 <p>${fb.message}</p>
 
 ${fb.userId === userId ? 

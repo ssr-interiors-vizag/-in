@@ -90,7 +90,47 @@
             SSR Interiors Vizag
         </p>
 
-    </div>
+    <div style="
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-top:30px;
+    max-width:600px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+">
+
+    <h2 style="margin-bottom:20px;">
+        📢 Announcement Bar
+    </h2>
+
+    <input type="text"
+           id="announcementInput"
+           placeholder="Enter announcement"
+           style="
+           width:100%;
+           padding:12px;
+           border:1px solid #ccc;
+           border-radius:6px;
+           ">
+
+    <button onclick="saveAnnouncement()"
+            style="
+            margin-top:15px;
+            background:#ff9800;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+            ">
+
+        Save Announcement
+
+    </button>
+
+</div>
+    
 
 </div>
 
@@ -274,6 +314,17 @@ window.logout = function() {
 
 // INITIAL LOAD
 loadImages();
+
+    window.saveAnnouncement = function(){
+
+const text =
+document.getElementById("announcementInput").value;
+
+localStorage.setItem("announcement", text);
+
+alert("Announcement Saved!");
+
+};
 
 </script>
 

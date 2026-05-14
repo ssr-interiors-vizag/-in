@@ -230,8 +230,7 @@ getFirestore,
 collection, 
 addDoc, 
 onSnapshot, 
-query, 
-orderBy,
+query,
 deleteDoc,
 doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -289,7 +288,7 @@ await deleteDoc(doc(db, "feedbacks", id));
 };
 
 // Load Feedback (REAL TIME)
-const q = query(feedbackRef, orderBy("created","desc"));
+const q = query(feedbackRef);
 
 onSnapshot(q,(snapshot)=>{
 

@@ -264,6 +264,8 @@ alert("Fill all fields");
 return;
 }
 
+try{
+
 await addDoc(feedbackRef,{
 name,
 rating,
@@ -271,7 +273,15 @@ message,
 userId: userId,
 created: Date.now()
 });
+
 alert("Feedback submitted!");
+
+}catch(error){
+
+console.log(error);
+alert(error.message);
+
+}
 
 document.getElementById("name").value="";
 document.getElementById("message").value="";

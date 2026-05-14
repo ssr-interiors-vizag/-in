@@ -194,8 +194,7 @@ margin-top:40px;
 
 <textarea id="message" placeholder="Write your feedback..."></textarea>
 
-<button onclick="submitFeedback()">Submit Feedback</button>
-
+<button id="submitBtn">Submit Feedback</button>
 </div>
 
 
@@ -254,7 +253,7 @@ const db = getFirestore(app);
 const feedbackRef = collection(db, "feedbacks");
 
 // Submit Feedback
-window.submitFeedback = async function(){
+async function submitFeedback(){
 
 const name = document.getElementById("name").value;
 const rating = document.getElementById("rating").value;
@@ -320,7 +319,10 @@ list.appendChild(div);
 });
 
 });
-
+  
+document
+.getElementById("submitBtn")
+.addEventListener("click", submitFeedback);
 </script>
 
 </body>

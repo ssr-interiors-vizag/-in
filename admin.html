@@ -160,11 +160,7 @@
  </div>
 </div>
     <div id="calculator" class="section"
-style="
-display:flex;
-flex-direction:column;
-align-items:center;
-">
+
 
     <h1>Interior Calculators</h1>
 
@@ -549,6 +545,12 @@ window.logout = function() {
     localStorage.removeItem("admin");
     window.location.href="index.html";
 };
+
+    #calculator{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
 // INITIAL LOAD
 loadImages();

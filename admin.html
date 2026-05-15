@@ -429,26 +429,20 @@ if(localStorage.getItem("admin") !== "true"){
 // NAVIGATION
 window.showSection = function(sectionId) {
 
-    document.querySelectorAll(".section").forEach(s => {
-        s.style.display = "none";
-        s.classList.remove("active");
+    // Hide all sections
+    const sections =
+    document.querySelectorAll(".section");
+
+    sections.forEach(function(section){
+        section.style.display = "none";
     });
 
-    const section =
-    document.getElementById(sectionId);
+    // Show selected section
+    document.getElementById(sectionId)
+    .style.display = "block";
 
-    if(sectionId === "calculator"){
-
-        section.style.display = "flex";
-        section.classList.add("active");
-
-    }else{
-
-        section.style.display = "block";
-
-    }
-
-    if(sectionId === 'manage'){
+    // Reload gallery if manage section
+    if(sectionId === "manage"){
         loadImages();
     }
 

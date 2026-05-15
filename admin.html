@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSR Interiors Admin Panel</title>
-    <link rel="stylesheet" href="css/admin.css">
-    <style>
-        .section { display: none; }
-        #dashboard { display: block; }
-        #preview { width: 100%; max-width: 400px; margin-top: 15px; border-radius: 8px; }
-        .manage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-        .manage-grid div { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
-        .manage-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
-        .delete-btn { margin-top: 10px; background: #ff4444; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; width: 100%; }
-        .delete-btn:hover { background: #cc0000; }
-        .category-tag { font-size: 12px; color: #666; text-transform: uppercase; margin-top: 5px; display: block; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSR Interiors Admin Panel</title>
+
+<link rel="stylesheet" href="css/admin.css">
 </head>
+
 <body>
 
 <div class="dashboard">
+
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>SSR Admin</h2>
         <ul>
@@ -28,676 +21,77 @@
             <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
             <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
             <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
-            <li><a href="#" onclick="logout(); return false;">Logout</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
-       <div id="dashboard" class="section">
 
-    <h1>Dashboard</h1>
-
-    <p>Welcome to SSR Interiors Admin Panel.</p>
-
-    <!-- ADMIN PROFILE CARD -->
-
-    <div style="
-        background:white;
-        padding:30px;
-        border-radius:12px;
-        margin-top:30px;
-        max-width:500px;
-        box-shadow:0 2px 10px rgba(0,0,0,0.1);
-        text-align:center;
-    ">
-
-        <img src="owner.jpg"
-             alt="Owner"
-             style="
-             width:150px;
-             height:150px;
-             border-radius:50%;
-             object-fit:cover;
-             border:4px solid #ff9800;
-             ">
-
-        <h2 style="
-            margin-top:20px;
-            color:#333;
-        ">
-            BODDEDA NIRANJAN SAI
-        </h2>
-
-        <p style="
-            font-size:18px;
-            color:#666;
-        ">
-            Founder & Interior Designer
-        </p>
-
-        <p style="
-            font-size:17px;
-            margin-top:10px;
-            color:#444;
-        ">
-            📞 +91 9014120128
-        </p>
-
-        <p style="
-            color:#888;
-            margin-top:10px;
-        ">
-            SSR Interiors Vizag
-        </p>
-
-    </div>
-
-    <!-- ANNOUNCEMENT CARD -->
-
-    <div style="
-        background:white;
-        padding:25px;
-        border-radius:12px;
-        margin-top:30px;
-        max-width:500px;
-        box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    ">
-
-        <h2 style="
-            margin-bottom:20px;
-            text-align:center;
-        ">
-            📢 Announcement Bar
-        </h2>
-
-        <input type="text"
-               id="announcementInput"
-               placeholder="Enter announcement"
-               style="
-               width:100%;
-               padding:12px;
-               border:1px solid #ccc;
-               border-radius:6px;
-               box-sizing:border-box;
-               ">
-
-        <button onclick="saveAnnouncement()"
-    
-                style="
-                margin-top:15px;
-                background:#ff9800;
-                color:white;
-                border:none;
-                padding:12px 20px;
-                border-radius:6px;
-                cursor:pointer;
-                font-weight:bold;
-                width:100%;
-                ">
-
-            Save Announcement
-
-        </button>
-        
-        <button onclick="deleteAnnouncement()"
-        style="
-        margin-top:10px;
-        background:red;
-        color:white;
-        border:none;
-        padding:12px 20px;
-        border-radius:6px;
-        cursor:pointer;
-        font-weight:bold;
-        width:100%;
-        ">
-
-    Delete Announcement
-
-</button>
-
-    </div>
- </div>
-</div>
-    <div id="calculator" class="section">
-
-
-    <h1>Interior Calculators</h1>
-
-    <!-- PAINT CALCULATOR -->
-
-    <div style="
-background:white;
-padding:30px;
-border-radius:12px;
-max-width:500px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-margin-top:30px;
-
-">
-
-        <h2 style="margin-bottom:20px;">
-            🎨 Paint Calculator
-        </h2>
-
-        <input type="number"
-               id="paintArea"
-               placeholder="Enter Wall Area (sq.ft)"
-               style="
-               width:100%;
-               padding:12px;
-               border:1px solid #ccc;
-               border-radius:6px;
-               box-sizing:border-box;
-               ">
-
-        <button onclick="calculatePaint()"
-                style="
-                margin-top:15px;
-                background:#ff9800;
-                color:white;
-                border:none;
-                padding:12px;
-                border-radius:6px;
-                cursor:pointer;
-                font-weight:bold;
-                width:100%;
-                ">
-
-            Calculate Paint
-
-        </button>
-
-        <div id="paintResult"
-             style="
-             margin-top:20px;
-             font-size:18px;
-             font-weight:bold;
-             color:#333;
-             ">
-        </div>
-        </div>
-        <div style="
-background:white;
-padding:30px;
-border-radius:12px;
-max-width:500px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-margin-top:30px;
-
-">
-
-<h2>🧱 Tile Calculator</h2>
-
-<input type="number" id="floorArea"
-placeholder="Floor Area (sq.ft)">
-
-<input type="number" id="tileSize"
-placeholder="Tile Size (sq.ft per tile)"
-style="margin-top:10px;">
-
-<button onclick="calculateTiles()"
-style="
-margin-top:15px;
-background:#ff9800;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-border-radius:6px;
-font-weight:bold;
-">
-
-Calculate Tiles
-
-</button>
-
-<div id="tileResult"
-style="
-margin-top:15px;
-font-size:18px;
-font-weight:bold;
-">
-</div>
-      </div>
-           <div style="
-background:white;
-padding:30px;
-border-radius:12px;
-max-width:500px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-margin-top:30px;
-
-">
-
-<h2>🏠 False Ceiling Estimator</h2>
-
-<input type="number"
-id="ceilingArea"
-placeholder="Ceiling Area (sq.ft)">
-
-<button onclick="calculateCeiling()"
-style="
-margin-top:15px;
-background:#ff9800;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-border-radius:6px;
-font-weight:bold;
-">
-
-Estimate Cost
-
-</button>
-
-<div id="ceilingResult"
-style="
-margin-top:15px;
-font-size:18px;
-font-weight:bold;
-">
-</div>
-    </div>
-                <div style="
-background:white;
-padding:30px;
-border-radius:12px;
-max-width:500px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-margin-top:30px;
-
-">
-
-<h2>💰 Interior Cost Estimator</h2>
-
-<input type="number"
-id="homeArea"
-placeholder="Home Area (sq.ft)">
-
-<select id="interiorType"
-style="
-margin-top:10px;
-width:100%;
-padding:12px;
-">
-
-<option value="1500">Basic Interior</option>
-<option value="2500">Premium Interior</option>
-<option value="4000">Luxury Interior</option>
-
-</select>
-
-<button onclick="calculateInterior()"
-style="
-margin-top:15px;
-background:#ff9800;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-border-radius:6px;
-font-weight:bold;
-">
-
-Estimate Budget
-
-</button>
-
-<div id="interiorResult"
-style="
-margin-top:15px;
-font-size:18px;
-font-weight:bold;
-">
-</div>
-                    </div>
-                    
-
-
-</div>
-</div>
-
-</div>
-
-    </div>
-
-</div>
-    
-
-</div>
-
-        <div id="upload" class="section">
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="section">
+            <h1>Dashboard</h1>
             <div class="card">
-                <h2>Upload Gallery Image</h2>
-                <input type="file" id="imageInput" accept="image/*">
-                <br><br>
-                <select id="category">
-                    <option value="kitchen">Modular Kitchen</option>
-                    <option value="bedroom">Bedroom</option>
-                    <option value="living">Living Room</option>
-                    <option value="wardrobe">Wardrobe</option>
-                    <option value="ceiling">False Ceiling</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <br><br>
-                <img id="preview">
-                <br><br>
-                <button id="uploadBtn" onclick="uploadImage()">Upload Image</button>
+                <h2>Welcome Admin</h2>
+                <p>SSR Interiors Control Panel</p>
             </div>
         </div>
 
+        <!-- CALCULATOR -->
+        <div id="calculator" class="section">
+            <h1>Calculators</h1>
+            <div class="card">
+                <input type="number" id="paintArea" placeholder="Paint Area">
+                <button onclick="calculatePaint()">Calculate Paint</button>
+                <div id="paintResult"></div>
+            </div>
+        </div>
+
+        <!-- UPLOAD -->
+        <div id="upload" class="section">
+            <h1>Upload</h1>
+            <div class="card">
+                <input type="file" id="imageInput">
+                <select id="category">
+                    <option value="kitchen">Kitchen</option>
+                    <option value="bedroom">Bedroom</option>
+                </select>
+                <img id="preview">
+                <button onclick="uploadImage()">Upload</button>
+            </div>
+        </div>
+
+        <!-- MANAGE -->
         <div id="manage" class="section">
             <h1>Manage Images</h1>
             <div id="imageContainer" class="manage-grid"></div>
         </div>
 
+        <!-- BOOKINGS -->
         <div id="bookings" class="section">
             <h1>Bookings</h1>
-            <p>Customer booking requests will appear here.</p>
+            <p>No bookings yet.</p>
         </div>
+
     </div>
+
 </div>
 
+<script type="module" src="js/admin.js"></script>
 
+<script>
+function showSection(id){
+    let sections = document.querySelectorAll(".section");
+    sections.forEach(sec => sec.style.display = "none");
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } 
-from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-// Firebase config
-const firebaseConfig = {
-    apiKey: "AIzaSyAPXXg5Lnrz31sl9JObtVNvWc7d4lY6LcY",
-    authDomain: "ssr-interious-vizag.firebaseapp.com",
-    projectId: "ssr-interious-vizag",
-    storageBucket: "ssr-interious-vizag.firebasestorage.app",
-    messagingSenderId: "612908277458",
-    appId: "1:612908277458:web:a914752013dfc60a13970b",
-    measurementId: "G-6SRSN62R2M"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// SECURITY CHECK
-if(localStorage.getItem("admin") !== "true"){
-    window.location.href="login.html";
+    document.getElementById(id).style.display = "block";
 }
 
-// NAVIGATION
-window.showSection = function(sectionId) {
-
-    // Hide all sections
-    const sections =
-    document.querySelectorAll(".section");
-
-    sections.forEach(function(section){
-        section.style.display = "none";
-    });
-
-    // Show selected section
-    document.getElementById(sectionId)
-    .style.display = "block";
-
-    // Reload gallery if manage section
-    if(sectionId === "manage"){
-        loadImages();
-    }
-
-};
-// IMAGE PREVIEW
-const imageInput = document.getElementById("imageInput");
-const preview = document.getElementById("preview");
-
-imageInput.onchange = () => {
-    const [file] = imageInput.files;
-    if (file) preview.src = URL.createObjectURL(file);
-};
-
-// ✅ FINAL UPLOAD FUNCTION (ONLY FIRESTORE)
-window.uploadImage = async function() {
-
-    const file = imageInput.files[0];
-    const category = document.getElementById("category").value;
-    const btn = document.getElementById("uploadBtn");
-
-    if(!file){
-        alert("Please select an image");
-        return;
-    }
-
-    // 🔒 Prevent large files
-    if(file.size > 800000){
-        alert("Image too large! Please use smaller image (<800KB)");
-        return;
-    }
-
-    btn.disabled = true;
-    btn.innerText = "Uploading...";
-
-    const reader = new FileReader();
-
-    reader.onload = async function(e){
-
-        try{
-            await addDoc(collection(db, "galleryImages"), {
-                src: e.target.result,
-                category: category,
-                createdAt: Date.now()
-            });
-
-            alert("Image uploaded successfully!");
-
-            preview.src = "";
-            imageInput.value = "";
-
-            loadImages(); // refresh manage section
-
-        }catch(err){
-            console.error(err);
-            alert("Upload failed");
-        }finally{
-            btn.disabled = false;
-            btn.innerText = "Upload Image";
-        }
-
-    };
-
-    reader.readAsDataURL(file);
-};
-
-// LOAD IMAGES
-window.loadImages = async function() {
-
-    const container = document.getElementById("imageContainer");
-    container.innerHTML = "<p>Loading...</p>";
-
-    try {
-        const q = query(collection(db, "galleryImages"), orderBy("createdAt", "desc"));
-        const snapshot = await getDocs(q);
-
-        container.innerHTML = "";
-
-        snapshot.forEach((docSnap) => {
-            const img = docSnap.data();
-
-            const div = document.createElement("div");
-
-            div.innerHTML = `
-                <img src="${img.src}">
-                <span class="category-tag">${img.category}</span>
-                <button class="delete-btn" onclick="deleteImage('${docSnap.id}')">Delete</button>
-            `;
-
-            container.appendChild(div);
-        });
-
-    } catch (error) {
-        container.innerHTML = "Error loading images.";
-    }
-};
-
-// DELETE IMAGE
-window.deleteImage = async function(docId) {
-
-    if(!confirm("Delete this image?")) return;
-
-    try {
-        await deleteDoc(doc(db, "galleryImages", docId));
-        alert("Deleted successfully!");
-        loadImages();
-    } catch (error) {
-        alert("Error deleting image.");
-    }
-};
-
-// LOGOUT
-window.logout = function() {
+function logout(){
     localStorage.removeItem("admin");
-    window.location.href="index.html";
-};
-
-   
-
-// INITIAL LOAD
-loadImages();
-
-    window.saveAnnouncement = function(){
-
-const text =
-document.getElementById("announcementInput").value;
-
-localStorage.setItem("announcement", text);
-
-alert("Announcement Saved!");
-
-};
-    window.deleteAnnouncement = function(){
-
-localStorage.removeItem("announcement");
-
-document.getElementById("announcementInput").value = "";
-
-alert("Announcement Deleted!");
-
-};
-window.calculatePaint = function(){
-
-const area =
-Number(document.getElementById("paintArea").value);
-
-if(area <= 0){
-
-alert("Enter valid area");
-return;
-
+    window.location.href = "login.html";
 }
-
-const liters = area / 120;
-
-document.getElementById("paintResult")
-.innerHTML = `
-Required Paint: 
-${liters.toFixed(1)} Liters
-`;
-
-};
-    window.calculateTiles = function(){
-
-const area =
-Number(document.getElementById("floorArea").value);
-
-const tile =
-Number(document.getElementById("tileSize").value);
-
-if(area <=0 || tile <=0){
-alert("Enter valid values");
-return;
-}
-
-const total = Math.ceil(area / tile);
-
-document.getElementById("tileResult")
-.innerHTML = `Tiles Required: ${total}`;
-
-};
-    window.calculateCeiling = function(){
-
-const area =
-Number(document.getElementById("ceilingArea").value);
-
-if(area <=0){
-alert("Enter valid area");
-return;
-}
-
-const cost = area * 120;
-
-document.getElementById("ceilingResult")
-.innerHTML = `
-Estimated Cost: ₹${cost}
-`;
-
-};
-    window.calculateInterior = function(){
-
-const area =
-Number(document.getElementById("homeArea").value);
-
-const type =
-Number(document.getElementById("interiorType").value);
-
-if(area <=0){
-alert("Enter valid area");
-return;
-}
-
-const total = area * type;
-
-document.getElementById("interiorResult")
-.innerHTML = `
-Estimated Budget: ₹${total.toLocaleString()}
-`;
-
-};
-    window.calculateWallpaper = function(){
-
-const area =
-Number(document.getElementById("wallpaperArea").value);
-
-const rollCoverage = 57;
-
-const rolls =
-Math.ceil(area / rollCoverage);
-
-document.getElementById("wallpaperResult")
-.innerHTML =
-`Wallpaper Rolls Needed: ${rolls}`;
-
-};
-    window.calculateKitchen = function(){
-
-const length =
-Number(document.getElementById("kitchenLength").value);
-
-if(length <=0){
-alert("Enter valid size");
-return;
-}
-
-const cost = length * 15000;
-
-document.getElementById("kitchenResult")
-.innerHTML = `
-Estimated Kitchen Cost: ₹${cost.toLocaleString()}
-`;
-
-};
-  
 </script>
-
 
 </body>
 </html>

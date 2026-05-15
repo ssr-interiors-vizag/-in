@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSR Interiors Admin Panel</title>
+<title>SSR Interiors Admin</title>
 
 <link rel="stylesheet" href="css/admin.css">
 </head>
@@ -12,84 +12,126 @@
 
 <div class="dashboard">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>SSR Admin</h2>
-        <ul>
-            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
-            <li><a href="#" onclick="showSection('calculator')">Calculators</a></li>
-            <li><a href="#" onclick="showSection('upload')">Upload Gallery</a></li>
-            <li><a href="#" onclick="showSection('manage')">Manage Images</a></li>
-            <li><a href="#" onclick="showSection('bookings')">Bookings</a></li>
-            <li><a href="#" onclick="logout()">Logout</a></li>
-        </ul>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>SSR Admin</h2>
+
+    <ul>
+        <li><a onclick="showSection('dashboard')">Dashboard</a></li>
+        <li><a onclick="showSection('calculator')">Calculators</a></li>
+        <li><a onclick="showSection('upload')">Upload</a></li>
+        <li><a onclick="showSection('manage')">Manage</a></li>
+        <li><a onclick="showSection('bookings')">Bookings</a></li>
+        <li><a onclick="logout()">Logout</a></li>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main-content">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+    <h1>Dashboard</h1>
+
+    <div class="card profile">
+        <img src="owner.jpg" alt="owner">
+        <h2>Boddeda Niranjan Sai</h2>
+        <p>Founder & Interior Designer</p>
+        <span>SSR Interiors Vizag</span>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
+    <div class="card">
+        <h3>📢 Announcement</h3>
+        <input type="text" id="announcementInput" placeholder="Enter announcement">
+        <button onclick="saveAnnouncement()">Save</button>
+        <button onclick="deleteAnnouncement()">Delete</button>
+    </div>
+</div>
 
-        <!-- DASHBOARD -->
-        <div id="dashboard" class="section">
-            <h1>Dashboard</h1>
-            <div class="card">
-                <h2>Welcome Admin</h2>
-                <p>SSR Interiors Control Panel</p>
-            </div>
-        </div>
+<!-- CALCULATOR -->
+<div id="calculator" class="section">
+    <h1>Calculators</h1>
 
-        <!-- CALCULATOR -->
-        <div id="calculator" class="section">
-            <h1>Calculators</h1>
-            <div class="card">
-                <input type="number" id="paintArea" placeholder="Paint Area">
-                <button onclick="calculatePaint()">Calculate Paint</button>
-                <div id="paintResult"></div>
-            </div>
-        </div>
-
-        <!-- UPLOAD -->
-        <div id="upload" class="section">
-            <h1>Upload</h1>
-            <div class="card">
-                <input type="file" id="imageInput">
-                <select id="category">
-                    <option value="kitchen">Kitchen</option>
-                    <option value="bedroom">Bedroom</option>
-                </select>
-                <img id="preview">
-                <button onclick="uploadImage()">Upload</button>
-            </div>
-        </div>
-
-        <!-- MANAGE -->
-        <div id="manage" class="section">
-            <h1>Manage Images</h1>
-            <div id="imageContainer" class="manage-grid"></div>
-        </div>
-
-        <!-- BOOKINGS -->
-        <div id="bookings" class="section">
-            <h1>Bookings</h1>
-            <p>No bookings yet.</p>
-        </div>
-
+    <div class="card">
+        <h3>🎨 Paint Calculator</h3>
+        <input type="number" id="paintArea" placeholder="Wall Area">
+        <button onclick="calculatePaint()">Calculate</button>
+        <div id="paintResult"></div>
     </div>
 
+    <div class="card">
+        <h3>🧱 Tile Calculator</h3>
+        <input type="number" id="floorArea" placeholder="Floor Area">
+        <input type="number" id="tileSize" placeholder="Tile Size">
+        <button onclick="calculateTiles()">Calculate</button>
+        <div id="tileResult"></div>
+    </div>
+
+    <div class="card">
+        <h3>🏠 Ceiling Estimator</h3>
+        <input type="number" id="ceilingArea">
+        <button onclick="calculateCeiling()">Estimate</button>
+        <div id="ceilingResult"></div>
+    </div>
+
+    <div class="card">
+        <h3>💰 Interior Cost</h3>
+        <input type="number" id="homeArea">
+        <select id="interiorType">
+            <option value="1500">Basic</option>
+            <option value="2500">Premium</option>
+            <option value="4000">Luxury</option>
+        </select>
+        <button onclick="calculateInterior()">Estimate</button>
+        <div id="interiorResult"></div>
+    </div>
+</div>
+
+<!-- UPLOAD -->
+<div id="upload" class="section">
+    <h1>Upload Gallery</h1>
+
+    <div class="card">
+        <input type="file" id="imageInput">
+        <select id="category">
+            <option value="kitchen">Kitchen</option>
+            <option value="bedroom">Bedroom</option>
+            <option value="living">Living</option>
+        </select>
+
+        <img id="preview">
+        <button onclick="uploadImage()">Upload</button>
+    </div>
+</div>
+
+<!-- MANAGE -->
+<div id="manage" class="section">
+    <h1>Manage Images</h1>
+    <div id="imageContainer" class="grid"></div>
+</div>
+
+<!-- BOOKINGS -->
+<div id="bookings" class="section">
+    <h1>Bookings</h1>
+    <div class="card">
+        <p>No bookings yet</p>
+    </div>
+</div>
+
+</div>
 </div>
 
 <script type="module" src="js/admin.js"></script>
 
 <script>
 function showSection(id){
-    let sections = document.querySelectorAll(".section");
-    sections.forEach(sec => sec.style.display = "none");
-
-    document.getElementById(id).style.display = "block";
+    document.querySelectorAll(".section").forEach(s => s.style.display="none");
+    document.getElementById(id).style.display="block";
 }
 
 function logout(){
     localStorage.removeItem("admin");
-    window.location.href = "login.html";
+    window.location.href="login.html";
 }
 </script>
 

@@ -428,12 +428,31 @@ if(localStorage.getItem("admin") !== "true"){
 
 // NAVIGATION
 window.showSection = function(sectionId) {
-    document.querySelectorAll(".section").forEach(s => s.style.display = "none");
-    document.getElementById(sectionId).style.display = "block";
 
-    if(sectionId === 'manage') loadImages();
+    document.querySelectorAll(".section").forEach(s => {
+        s.style.display = "none";
+        s.classList.remove("active");
+    });
+
+    const section =
+    document.getElementById(sectionId);
+
+    if(sectionId === "calculator"){
+
+        section.style.display = "flex";
+        section.classList.add("active");
+
+    }else{
+
+        section.style.display = "block";
+
+    }
+
+    if(sectionId === 'manage'){
+        loadImages();
+    }
+
 };
-
 // IMAGE PREVIEW
 const imageInput = document.getElementById("imageInput");
 const preview = document.getElementById("preview");
@@ -546,11 +565,7 @@ window.logout = function() {
     window.location.href="index.html";
 };
 
-    #calculator{
-display:flex;
-flex-direction:column;
-align-items:center;
-}
+   
 
 // INITIAL LOAD
 loadImages();
@@ -686,6 +701,11 @@ Estimated Kitchen Cost: ₹${cost.toLocaleString()}
 `;
 
 };
+    #calculator.active{
+display:flex !important;
+flex-direction:column;
+align-items:center;
+}
 </script>
 
 

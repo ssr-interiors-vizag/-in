@@ -1,196 +1,118 @@
-/* =========================
-   RESET + GLOBAL
-========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
 }
 
 body {
-    background: #f4f6f9;
-    color: #333;
-    line-height: 1.5;
+background: #f4f6f9;
 }
 
-/* =========================
-   LAYOUT
-========================= */
+/* DASHBOARD */
 .dashboard {
-    display: flex;
-    height: 100vh;
+display: flex;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
+/* SIDEBAR FIXED */
 .sidebar {
-    width: 230px;
-    background: #1a1a1a;
-    color: white;
-    padding: 30px 20px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
+width: 230px;
+height: 100vh;
+background: #1a1a1a;
+color: white;
+padding: 20px;
+position: fixed;
+left: 0;
+top: 0;
+overflow-y: auto;
 }
 
 .sidebar h2 {
-    text-align: center;
-    margin-bottom: 40px;
+text-align: center;
+margin-bottom: 30px;
 }
 
 .sidebar ul {
-    list-style: none;
+list-style: none;
 }
 
 .sidebar ul li {
-    margin: 18px 0;
+margin: 15px 0;
 }
 
 .sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    border-radius: 6px;
-    transition: 0.3s;
+color: white;
+text-decoration: none;
+display: block;
+padding: 10px;
+border-radius: 6px;
+transition: 0.3s;
 }
 
 .sidebar ul li a:hover {
-    background: #ff9800;
+background: #ff9800;
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
+/* MAIN CONTENT FIX */
 .main-content {
-    margin-left: 230px;
-    flex: 1;
-    padding: 40px;
+margin-left: 230px;
+padding: 30px;
+width: 100%;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 .section {
-    display: none;
+display: none;
 }
 
 #dashboard {
-    display: block;
+display: block;
 }
 
-/* =========================
-   CARD DESIGN
-========================= */
+/* CARD */
 .card {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    max-width: 420px;
-    width: 100%;
-    margin-top: 20px;
+background: white;
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+max-width: 500px;
+margin-top: 20px;
 }
 
-/* =========================
-   INPUTS
-========================= */
-input[type="file"],
-input[type="number"],
-input[type="text"],
-select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    outline: none;
-}
-
-/* =========================
-   IMAGE PREVIEW
-========================= */
-#preview {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 8px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTON */
 button {
-    background: #ff9800;
-    border: none;
-    padding: 12px 20px;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 100%;
-    transition: 0.3s;
+background: #ff9800;
+border: none;
+padding: 10px;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+margin-top: 10px;
+width: 100%;
 }
 
 button:hover {
-    background: #e68900;
-    transform: scale(1.02);
+background: #e68900;
 }
 
-/* =========================
-   MANAGE GRID
-========================= */
+/* IMAGE PREVIEW */
+#preview {
+width: 100%;
+margin-top: 10px;
+border-radius: 8px;
+}
+
+/* GRID */
 .manage-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+gap: 15px;
+margin-top: 20px;
 }
 
 .manage-grid div {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.manage-grid img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* =========================
-   DELETE BUTTON
-========================= */
-.delete-btn {
-    margin-top: 10px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-    width: 100%;
-}
-
-.delete-btn:hover {
-    background: #cc0000;
-}
-
-/* =========================
-   CATEGORY TAG
-========================= */
-.category-tag {
-    font-size: 12px;
-    color: #666;
-    text-transform: uppercase;
-    margin-top: 5px;
-    display: block;
+background: white;
+padding: 10px;
+border-radius: 8px;
+text-align: center;
 }
